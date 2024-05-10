@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb748343610b48747b5b4aa191425f12, type: 3}
   m_Name: Guard
   m_EditorClassIdentifier: 
-  firstName: Anthony
+  firstName: Guard
   lastName: Soprano
   guardType: 0

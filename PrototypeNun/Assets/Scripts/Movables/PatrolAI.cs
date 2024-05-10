@@ -1,10 +1,12 @@
 using UnityEngine.AI;
 using UnityEngine;
 
-public class PatrolAI : MonoBehaviour
+public class PatrolAI : MonoBehaviour, IMovable
 {
     private NavMeshAgent _agent;
     public Transform[] waypoints;
+
+    public bool isStop = false;
 
     int waypointIndex;
 
@@ -25,6 +27,12 @@ public class PatrolAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         if(isStop)
+            {
+                return;
+            }
+            
+
         if(Vector3.Distance(transform.position, target) < 1)
         {
             IterateWaypointIndex();
@@ -46,4 +54,16 @@ public class PatrolAI : MonoBehaviour
             waypointIndex = 0;
         }
     }
+
+    public void CheckMovement(bool isStop)
+    {
+        this.isStop = isStop;
+    }
+
+}
+
+
+public interface IMovable
+{
+    void CheckMovement(bool isStop);
 }

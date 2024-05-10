@@ -131,7 +131,7 @@ public class InventoryHandler : MonoBehaviour
 
     void SpawnNewItem(ItemSO item, UiItemSlot slot)
     {
-       // Debug.Log("Spawning new item");
+        Debug.Log("Spawning new item");
         //Debug.Log("ITEMSO: " + item.itemName + " SLOT: " + slot);
         // Spawn item in the world
         //GameObject itemGO = Instantiate(item.itemPrefab, slot.transform);

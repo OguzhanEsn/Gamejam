@@ -1,5 +1,9 @@
 using MiniGames;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using TMPro;
 
 public enum UIElements
@@ -12,24 +16,44 @@ public enum UIElements
 public class HudHandler : MonoBehaviour
 {
     [SerializeField] GameObject interactableUI = null;
-    [SerializeField] GameObject inventoryUI = null;
+    [SerializeField] public GameObject inventoryUI = null;  //PickPocketUI
     [SerializeField] GameObject dialogueUI = null;
     [SerializeField] GameObject pauseUI = null;
+    [SerializeField] GameObject raporUI= null;
+    [SerializeField] GameObject raporObject = null;
 
     [SerializeField] PlayerController playerController = null;
 
+    [SerializeField] public GameObject fridgeInventoryUI = null;
+    [SerializeField] public GameObject lockerInventoryUI = null;
+    [SerializeField] public GameObject deskInventoryUI = null;
 
     #region MiniGameUI
     [SerializeField] GameObject MiniGameUI = null;
     [SerializeField] GameObject LockPickMiniGameUI = null;
     [SerializeField] GameObject trueLockPickGame = null;
     [SerializeField] GameObject PickPocketMiniGameUI = null;
+    [SerializeField] GameObject prayMiniGameUI = null;
+
+    #endregion
+
+    #region Cheat
+    public List<GameObject> movables = new List<GameObject>();
     #endregion
 
 
     [SerializeField] TextMeshProUGUI interactableTypeText = null, interactableItemText = null;
 
 
+    public void CloseAllInventory()
+    {
+        fridgeInventoryUI.SetActive(false);
+        lockerInventoryUI.SetActive(false);
+        deskInventoryUI.SetActive(false);
+        inventoryUI.SetActive(false);
+
+        Test(false);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -45,25 +69,94 @@ public class HudHandler : MonoBehaviour
     {
         
     }
-   
-   public void InventoryOpenClose()
+
+    public void RaporUIOpenClose()
     {
-        if(inventoryUI.activeSelf)
+        if(raporUI.activeSelf)
         {
-            inventoryUI.SetActive(false);
+            raporUI.SetActive(false);
+
         }
         else
         {
-            inventoryUI.SetActive(true);
+            raporUI.SetActive(true);
+
         }
     }
+
+   
+   public void InventoryOpenClose(int number)
+    {
+        switch (number)
+        {
+            case 0:
+                if(!fridgeInventoryUI.activeSelf)
+                {
+                    fridgeInventoryUI.SetActive(true);
+                    Test(true);
+                }
+                break;
+            case 1:
+                if(!lockerInventoryUI.activeSelf)
+                {
+                    lockerInventoryUI.SetActive(true);
+                    Test(true);
+                }
+                break;
+            case 2:
+                if(!deskInventoryUI.activeSelf)
+                {
+                    deskInventoryUI.SetActive(true);
+                    Test(true);
+                }
+                break;
+            case 3:
+                if(!inventoryUI.activeSelf)
+                {
+                    inventoryUI.SetActive(true);
+                    Test(true);
+                }
+                break;
+        }
+
+    }
+
+
+   void Test(bool test)
+   {
+    foreach (GameObject obj in movables)
+        {
+            // Eğer obje Ipatrol arayüzünü uyguluyorsa
+            if (obj.GetComponent<PatrolAI>() != null)
+            {
+                obj.GetComponent<NavMeshAgent>().isStopped = test;
+            }
+        }
+   }
+    
 
    public void CloseMiniGameUI()
     {
         MiniGameUI.SetActive(false);
         LockPickMiniGameUI.SetActive(false);
+        lockerInventoryUI.SetActive(false);
+        fridgeInventoryUI.SetActive(false);
+        deskInventoryUI.SetActive(false);
+
         PickPocketMiniGameUI.SetActive(false);
         playerController.SetBusy(false);
+
+        
+
+        foreach (GameObject obj in movables)
+        {
+            // Eğer obje Ipatrol arayüzünü uyguluyorsa
+            if (obj.GetComponent<PatrolAI>() != null)
+            {
+                obj.GetComponent<NavMeshAgent>().isStopped = false;
+            }
+        }
+
     }
    public void ActivateMiniGameUI(MiniGameType miniGameType, 
    LockDifficulty lockDifficulty, int lockPickNumber, GameObject testObje)
@@ -79,13 +172,39 @@ public class HudHandler : MonoBehaviour
                 trueLockPickGame.GetComponent<LockGame>().winObject = testObje;
                 trueLockPickGame.GetComponent<LockGame>().FirstStart();
                 playerController.SetBusy(true);
+                break;
+
+            case MiniGameType.Pray:
+                prayMiniGameUI.SetActive(true);
+                playerController.SetBusy(true);
                 
+        
+        foreach (GameObject obj in movables)
+        {
+            // Eğer obje Ipatrol arayüzünü uyguluyorsa
+            if (obj.GetComponent<PatrolAI>() != null)
+            {
+                obj.GetComponent<NavMeshAgent>().isStopped = true;
+
+            }
+        }
+
+
                 break;
             case MiniGameType.PickPocket:
                 PickPocketMiniGameUI.GetComponent<TubeGame>().winObject = testObje;
                 PickPocketMiniGameUI.SetActive(true);
                 PickPocketMiniGameUI.GetComponent<TubeGame>().FirstStart(); 
                 playerController.SetBusy(true);
+
+        foreach (GameObject obj in movables)
+        {
+            // Eğer obje Ipatrol arayüzünü uyguluyorsa
+            if (obj.GetComponent<PatrolAI>() != null)
+            {
+                obj.GetComponent<NavMeshAgent>().isStopped = true;
+            }
+        }
                 break;
         }
     }
@@ -141,5 +260,6 @@ public class HudHandler : MonoBehaviour
 public enum MiniGameType
 {
     LockPick = 0,
-    PickPocket= 1
+    PickPocket= 1,
+    Pray = 2
 }

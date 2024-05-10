@@ -17,4 +17,4 @@ MonoBehaviour:
   isInteracting: 1
   typeText: Open Locker
   itemText: 'Lock Box ( Medium ) '
-  LockerData: {fileID: 11400000, guid: 3b028b0f8a03d7c4aab26047575a99a3, type: 2}
+  LockerData: {fileID: 0}

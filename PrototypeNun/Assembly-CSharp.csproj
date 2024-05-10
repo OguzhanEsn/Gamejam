@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{D445EB67-3496-43DF-385C-1388577C2EB6}</ProjectGuid>
+    <ProjectGuid>{3BCA7CDF-AD86-C4BF-FDE9-A9AF3B8CBCC7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -83,20 +83,24 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\ItemSO\WeaponITSO.cs" />
+    <Compile Include="Assets\Scripts\Interactions\PrayInteract.cs" />
     <Compile Include="Assets\Assets\ToonTastic - Potion Pack\Scripts\Liquid In Bottle\Wobble.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\oğuzhan\Scripts\Buttons.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
+    <Compile Include="Assets\Free Wood Door Pack\Script\Door.cs" />
+    <Compile Include="Assets\ReportHolder.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\Enums.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\Scripts\RoomDoor.cs" />
     <Compile Include="Assets\Scripts\Interactions\PatientInteract.cs" />
     <Compile Include="Assets\Scripts\ItemSO\LockerITSO.cs" />
-    <Compile Include="Assets\oğuzhan\Scripts\Syringe.cs" />
     <Compile Include="Assets\Scripts\Foods\FoodInteract.cs" />
+    <Compile Include="Assets\Scripts\Monos\Cross.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Scripts\Monos\Oven.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
@@ -104,24 +108,29 @@
     <Compile Include="Assets\Scripts\ItemSO\KeyITSO.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\Foods\FoodITSO.cs" />
+    <Compile Include="Assets\Free Wood Door Pack\Script\CameraOpenDoor.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\Scripts\Inventory\UiItemSlot.cs" />
     <Compile Include="Assets\Scripts\Monos\TestObje.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\SceneManagement.cs" />
     <Compile Include="Assets\Scripts\Interactions\CraftInteract.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Interactions\PocketInteractions.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
+    <Compile Include="Assets\Scripts\MiniGames\LockGame\DotDetector.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
-    <Compile Include="Assets\Scripts\MiniGames\LockGame\DotDetector.cs" />
     <Compile Include="Assets\Scripts\ItemSO\PoisionITSO.cs" />
     <Compile Include="Assets\Scripts\ConsumableItem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\oğuzhan\Scripts\Letter.cs" />
     <Compile Include="Assets\oğuzhan\Scripts\Clock.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\ReportInteract.cs" />
+    <Compile Include="Assets\Free Wood Door Pack\Script\FPSController.cs" />
+    <Compile Include="Assets\ReportPage.cs" />
     <Compile Include="Assets\Input\PlayerInput.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Scripts\Interactions\Interactions.cs" />
@@ -143,6 +152,9 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ItemSO\ItemSO.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\Scripts\FirstScene\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\Statue.cs" />
+    <Compile Include="Assets\Scripts\FirstScene\DialogueTrigger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -511,7 +523,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.2\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
@@ -1165,7 +1177,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{0AD95A41-C43D-3A09-3C58-77CB9524270B}</Project>
+      <Project>{926BEE34-82AF-78F3-DA27-54059248594D}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
   </ItemGroup>

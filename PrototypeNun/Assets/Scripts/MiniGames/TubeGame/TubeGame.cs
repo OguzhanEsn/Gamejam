@@ -101,7 +101,7 @@ public class TubeGame : MonoBehaviour
         {
             //Win
             hudHandler.CloseMiniGameUI();
-            hudHandler.InventoryOpenClose();
+            hudHandler.InventoryOpenClose(3);
             hudHandler.StopMovement(true);
             winObject.GetComponent<HumanoidObject>().IsStolen = true;
             Debug.Log("Win");

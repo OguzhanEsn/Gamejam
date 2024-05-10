@@ -114,7 +114,7 @@ public class LockGame : MonoBehaviour
             winObject.GetComponent<TestObje>().isOpen = true;
             Debug.Log("WinCond");
             hudHandler.CloseMiniGameUI();
-            hudHandler.InventoryOpenClose();
+            hudHandler.InventoryOpenClose(1);
             hudHandler.StopMovement(true);
         }
         if(remainingLockPicks <= 0)

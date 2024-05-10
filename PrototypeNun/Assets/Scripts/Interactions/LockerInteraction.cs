@@ -23,7 +23,8 @@ public class LockerInteraction : Interactions
     {
         LockerITSO lockerData = go.GetComponent<TestObje>().ItemData as LockerITSO;
         LockerData = lockerData;
-        itemText = lockerData.itemName + " ( " + lockerData.lockDifficulty + " ) ";
+        typeText = "Open " + lockerData.itemName;
+        itemText = lockerData.itemName;
         hudHandler.ActivateHudElement(UIElements.InteractableUI, go.transform, 1.0f, typeText, itemText);
     }
 }

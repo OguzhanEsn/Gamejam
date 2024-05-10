@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7eb49931f46464786e1a7fe967ea9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  img: {fileID: 0}
-  pressedImg: {fileID: 0}
+  img: {fileID: 2223541528279746119}
+  pressedImg: {fileID: 2223541528279746119}
   key: 101
 --- !u!50 &8388135921901327961
 Rigidbody2D:
@@ -255,8 +255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7eb49931f46464786e1a7fe967ea9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  img: {fileID: 0}
-  pressedImg: {fileID: 0}
+  img: {fileID: 2605032044864742367}
+  pressedImg: {fileID: 2605032044864742367}
   key: 119
 --- !u!50 &4269261450265102536
 Rigidbody2D:
@@ -420,8 +420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7eb49931f46464786e1a7fe967ea9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  img: {fileID: 0}
-  pressedImg: {fileID: 0}
+  img: {fileID: 9187786562178012552}
+  pressedImg: {fileID: 9187786562178012552}
   key: 114
 --- !u!50 &3873973821589490575
 Rigidbody2D:
@@ -620,8 +620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7eb49931f46464786e1a7fe967ea9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  img: {fileID: 0}
-  pressedImg: {fileID: 0}
+  img: {fileID: 508748593214714170}
+  pressedImg: {fileID: 508748593214714170}
   key: 113
 --- !u!50 &8021550458360064597
 Rigidbody2D:

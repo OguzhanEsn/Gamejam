@@ -15,6 +15,8 @@ public class TestObje : MonoBehaviour, IInteractable
     public bool isInOwen = false;
     public bool isOpen = false;
 
+    public int inventoryNumber;
+
     private bool canDestroy = false;
     public ItemSO ItemData
     {
@@ -32,12 +34,17 @@ public class TestObje : MonoBehaviour, IInteractable
             case PickInteract pickInteract:
                 Debug.Log("Grab: " + pickInteract.itemData.itemName);
                 inventoryHandler.AddItem(pickInteract.itemData);
-                this.gameObject.SetActive(false);
+                
                 //Destroy this later
                 //Destroy(this.gameObject, 0.1f);
                 break;
             case ReadInteract readInteract:
                 inter.Activate(this.gameObject, hudHandler);
+                break;
+            case ReportInteract reportInteract:
+                inter.Activate(this.gameObject, hudHandler);
+                ReportPage reportPage = gameObject.GetComponent<ReportPage>();
+                reportPage.PickUp();
                 break;
             case FoodInteract foodInteract:
                 if(isInOwen) 
@@ -100,7 +107,7 @@ public class TestObje : MonoBehaviour, IInteractable
                     }
                   }
                 }else {                
-                hudHandler.InventoryOpenClose();
+                hudHandler.InventoryOpenClose(inventoryNumber);
                 hudHandler.StopMovement(true);
                 }
                 //inter.Activate(this.gameObject, hudHandler);
@@ -130,6 +137,13 @@ public class TestObje : MonoBehaviour, IInteractable
     {
         //
         inter.ShowInteractUI(this.gameObject, hudHandler);
+    }
+
+    private void OnTransformParentChanged()
+    {
+        Debug.Log("123");
+        transform.localRotation = Quaternion.Euler(itemData.inHandRotation);
+        transform.localPosition = itemData.inHandPosition;
     }
 
 }

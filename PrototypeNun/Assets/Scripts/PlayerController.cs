@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
         ESCMenu();
 
         if(isBusy) return;
-        
+
         //UpdateMouseLook();
         UpdateMovement();
         InteractCheck();
@@ -112,12 +112,12 @@ public class PlayerController : MonoBehaviour
     {
 
     }
-
     void ESCCheck()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            hudHandler.InventoryOpenClose();
+
+            hudHandler.CloseAllInventory();
             miniGameOn = false;
 
         }
@@ -177,12 +177,89 @@ public class PlayerController : MonoBehaviour
     {
         if(inventoryHandler.GetCurrentItem() == null)
         {
-            playerHand.GetComponent<SpriteRenderer>().sprite = null;
-            return;
-        }
+            Transform holder = playerHand.Find("holder");
 
-        Debug.Log("Setting Player Hand: " + inventoryHandler.GetCurrentItem().itemName.ToString());
-        playerHand.GetComponent<SpriteRenderer>().sprite = inventoryHandler.GetCurrentItem().uiIcon;
+            foreach (Transform item in holder)
+            {
+                Debug.Log(item);
+                item.gameObject.SetActive(false);
+            }
+            return;
+            //playerHand.GetComponent<SpriteRenderer>().sprite = null;
+
+        }
+        else
+        {
+            /*Transform holder = playerHand.Find("holder");
+            Debug.Log(inventoryHandler.GetCurrentItem().name);
+            Transform heldItem = holder.Find(inventoryHandler.GetCurrentItem().name).GetComponent<Transform>();
+
+            heldItem.gameObject.SetActive(true);*/
+            Transform holder = playerHand.Find("holder");
+            foreach (Transform item in holder)
+            {
+
+
+                if (holder.Find(inventoryHandler.GetCurrentItem().name) == item)
+                {
+                    item.gameObject.SetActive(true);
+                }else
+                    item.gameObject.SetActive(false);
+
+            }
+            
+
+            
+        }
+        
+
+        /* else
+        {
+
+            ItemSO selectedItem = inventoryHandler.GetCurrentItem();
+            string selectedItemName = selectedItem.itemName;
+            Debug.Log(selectedItemName + "123");
+            Transform findItem = FindObjectOfType<Transform>(true);
+
+
+            if (findItem != null )
+            {
+                findItem.gameObject.transform.SetParent(playerHand);
+                if (findItem.IsChildOf(playerHand))
+                {
+                    Debug.Log("SKJDLAFHA");
+                    if (findItem.name == selectedItemName)
+                    {
+                        
+                        findItem.gameObject.SetActive(true);
+                        
+                    }
+                }
+            }
+
+          
+            
+        }*/
+
+        //Debug.Log("Setting Player Hand: " + inventoryHandler.GetCurrentItem().itemName.ToString());
+        //playerHand.GetComponent<SpriteRenderer>().sprite = inventoryHandler.GetCurrentItem().uiIcon;
+        string obje = inventoryHandler.GetCurrentItem().itemName;
+       /* if (!GameObject.Find(obje).TryGetComponent<Transform>(out var objePrefab))
+        {
+            objePrefab = playerHand.Find("holder").Find(obje).transform;
+            if (objePrefab.parent == null)
+                objePrefab.SetParent(playerHand.Find("holder"));
+        }*/
+        if (GameObject.Find(obje).TryGetComponent<Transform>(out var objePrefab))
+        {
+            Debug.Log(obje);
+            
+            Transform holder = playerHand.Find("holder");
+
+            objePrefab.parent = holder;
+            
+        }
+       
         //inventoryHandler.GetCurrentItem().itemImage.transform.SetParent(playerHand);
     }
 
@@ -253,8 +330,8 @@ public class PlayerController : MonoBehaviour
             miniGameOn = busy;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            Time.timeScale = 0.1f;
-        }else if(!busy)
+            //Time.timeScale = 0.1f;
+        }else
         {
             miniGameOn = busy;
             Cursor.lockState = CursorLockMode.Locked;
@@ -273,7 +350,7 @@ public class PlayerController : MonoBehaviour
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                Time.timeScale = 0.1f;
+                //Time.timeScale = 0.1f;
             }else
             {
                 Cursor.lockState = CursorLockMode.Locked;

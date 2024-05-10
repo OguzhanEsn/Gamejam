@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using Unity.VisualScripting;
 public class GM : MonoBehaviour
 {
 
+    public GameObject angelStatue;
 
     public GameObject letters;
 
@@ -15,14 +17,16 @@ public class GM : MonoBehaviour
 
     public int currentMultiplier;
     public int multiplierTracker;
+    public int hitTracker;
     public int[] multiplierThresholds;
 
+    public bool failed, succeed;
+
+    public TextMeshProUGUI txt;
 
     void Start()
     {
         gm = this;
-
-        StartCoroutine(nameof(SpawnLetters));
 
         currentMultiplier = 1;
     }
@@ -30,6 +34,7 @@ public class GM : MonoBehaviour
   
     public void Hit()
     {
+        hitTracker++;
 
         if(currentMultiplier - 1 < multiplierThresholds.Length)
         { 
@@ -55,16 +60,26 @@ public class GM : MonoBehaviour
 
     }
 
-
-    IEnumerator SpawnLetters()
+    public void EndPrayMiniGame()
     {
-        GameObject go = Instantiate(letters, letters.transform.position, letters.transform.rotation);
-        go.transform.parent = transform;
-        go.transform.localScale = Vector3.one;
-        go.transform.localPosition = new Vector3(0, 8, 0);
+        if(succeed) 
+        {
+            txt.text = "Succees";
+        }
+        if(failed)
+        {
+            txt.text = "Fail";
+        }
 
-        yield return new WaitForSeconds(15f);
+        Animator a = angelStatue.GetComponent<Animator>();
+        a.Play("PrayText");
 
-        StartCoroutine(nameof(SpawnLetters));
+        Statue s = a.GetComponent<Statue>();
+        s.enabled = false;
+
+        
     }
+
+    
+
 }

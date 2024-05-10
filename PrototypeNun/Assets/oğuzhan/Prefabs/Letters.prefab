@@ -126,8 +126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 101
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}
 --- !u!1 &2768885871605891738
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +258,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8406a67771737b74b8a7b84dd1e7a532, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7723ff4fa95a297419ae9c2bbb7745a3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -319,8 +317,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 114
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}
 --- !u!1 &4336459604819843990
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,8 +443,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 101
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}
 --- !u!1 &5852541114481637029
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,8 +569,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 113
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}
 --- !u!1 &6126597656234813483
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,8 +695,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 119
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}
 --- !u!1 &6355701366863036563
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,8 +821,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 113
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}
 --- !u!1 &6672694167262635303
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,8 +947,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 101
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}
 --- !u!1 &7513101778925493331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,8 +1073,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 119
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}
 --- !u!1 &7588126515402443129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,8 +1199,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 113
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}
 --- !u!1 &8076470601706738579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,7 +1266,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8406a67771737b74b8a7b84dd1e7a532, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7723ff4fa95a297419ae9c2bbb7745a3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1343,8 +1325,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 114
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}
 --- !u!1 &8079569443086040802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,8 +1451,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 119
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}
 --- !u!1 &8358980622098654029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,7 +1518,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8406a67771737b74b8a7b84dd1e7a532, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7723ff4fa95a297419ae9c2bbb7745a3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1599,8 +1577,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 114
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}
 --- !u!1 &8511390918482549317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,7 +1644,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8406a67771737b74b8a7b84dd1e7a532, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7723ff4fa95a297419ae9c2bbb7745a3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1727,8 +1703,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 114
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}
 --- !u!1 &8602544932182383333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1855,8 +1829,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 119
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}
 --- !u!1 &8641194113258734226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,8 +1955,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 101
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}
 --- !u!1 &8794931959520547280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,5 +2081,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   key: 113
-  hitEffect: {fileID: 0}
-  missEffect: {fileID: 0}

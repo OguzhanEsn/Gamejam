@@ -13,5 +13,9 @@ public class ItemSO: ScriptableObject
     public int itemID;
     public bool isStackable;
 
+    public Vector3 inHandPosition;
+    public Vector3 inHandRotation;
+
+
 
 }

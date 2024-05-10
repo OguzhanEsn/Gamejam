@@ -15,5 +15,5 @@ MonoBehaviour:
   pressHoldTime: 0.5
   interactString: Press E to interact
   isInteracting: 1
-  typeText: Steal
-  itemText: 
+  typeText: Pickpocket
+  itemText: Guard

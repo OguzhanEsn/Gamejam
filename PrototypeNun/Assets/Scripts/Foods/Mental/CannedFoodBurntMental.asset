@@ -17,7 +17,7 @@ MonoBehaviour:
   itemName: Canned Meat
   itemDescription: Canned Meat
   itemID: 24
-  isStackable: 1
+  isStackable: 0
   foodHealthType: 2
   cookingType: 2
   coockingTime: 0

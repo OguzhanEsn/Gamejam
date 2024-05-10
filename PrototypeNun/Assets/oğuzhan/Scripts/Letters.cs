@@ -52,7 +52,19 @@ public class Letters : MonoBehaviour
         }
 
         if (transform.childCount == 0)
+        {
+            if (GM.gm.hitTracker >= 8)
+            {
+                GM.gm.succeed = true;
+            }
+            else
+                GM.gm.failed = true;
+
+            GM.gm.EndPrayMiniGame();
             Destroy(gameObject);
+
+        }
+            
 
     }
 
