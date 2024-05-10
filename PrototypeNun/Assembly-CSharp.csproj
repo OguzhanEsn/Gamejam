@@ -107,8 +107,8 @@
     <Compile Include="Assets\Scripts\Movables\NunSO.cs" />
     <Compile Include="Assets\Scripts\ItemSO\KeyITSO.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
-    <Compile Include="Assets\Scripts\Foods\FoodITSO.cs" />
     <Compile Include="Assets\Free Wood Door Pack\Script\CameraOpenDoor.cs" />
+    <Compile Include="Assets\Scripts\Foods\FoodITSO.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\Scripts\Inventory\UiItemSlot.cs" />
     <Compile Include="Assets\Scripts\Monos\TestObje.cs" />
