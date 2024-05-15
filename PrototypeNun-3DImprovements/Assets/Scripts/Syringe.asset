@@ -20,4 +20,5 @@ MonoBehaviour:
   isStackable: 0
   inHandPosition: {x: 0, y: 0, z: 0}
   inHandRotation: {x: 0, y: 0, z: 0}
+  inHandScale: {x: 1, y: 1, z: 1}
   weaponDamage: 100
