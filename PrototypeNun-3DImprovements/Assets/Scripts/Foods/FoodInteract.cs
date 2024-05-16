@@ -12,7 +12,7 @@ public class FoodInteract : Interactions
     public string foodCookingTypeText = "Cooking Type";
     private string itemText;
     public FoodITSO ItemData;
-    public CookingType cookingType;
+    //public CookingType cookingType;
 
     public override void Activate(GameObject go, HudHandler hudHandler)
     {
@@ -29,7 +29,7 @@ public class FoodInteract : Interactions
         itemText = " ";
         FoodITSO itemData = go.GetComponent<TestObje>().ItemData as FoodITSO; 
         ItemData = itemData;
-        itemText = itemData.itemName + "(" + itemData.cookingType + ")" + " - " + itemData.foodHealthType;
+        itemText = itemData.itemName + " - " + itemData.foodHealthType;
         hudHandler.ActivateHudElement(UIElements.InteractableUI, go.transform, 1.0f, typeText, itemText);
     }
 }

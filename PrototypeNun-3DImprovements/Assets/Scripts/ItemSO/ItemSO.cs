@@ -17,5 +17,7 @@ public class ItemSO: ScriptableObject
     public Vector3 inHandRotation;
     public Vector3 inHandScale;
 
-
+    public Vector3 onObjectPosition;
+    public Vector3 onObjectRotation;
+    public Vector3 onObjectScale;
 }

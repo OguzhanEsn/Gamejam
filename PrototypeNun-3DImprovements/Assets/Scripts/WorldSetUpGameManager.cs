@@ -90,5 +90,7 @@ public class WorldSetUpGameManager : MonoBehaviour
     
         CheckWinLoseCond();
         Debug.Log("Setting up the world");
+        Day++;
+
     }
 }

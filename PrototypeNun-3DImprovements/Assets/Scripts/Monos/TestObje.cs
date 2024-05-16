@@ -12,7 +12,7 @@ public class TestObje : MonoBehaviour, IInteractable
 
     [SerializeField] ItemSO itemData;
 
-    public bool isInOwen = false;
+
     public bool isOpen = false;
 
     public int inventoryNumber;
@@ -47,38 +47,38 @@ public class TestObje : MonoBehaviour, IInteractable
                 reportPage.PickUp();
                 break;
             case FoodInteract foodInteract:
-                if(isInOwen) 
+                if(foodInteract.ItemData.foodHealthType == FoodHealthType.Natural) 
                 {
-                    if(inventoryHandler.GetCurrentItem() is PoisionITSO)
+                    if(inventoryHandler.GetCurrentItem() is PoisonITSO)
                     {
-                        PoisionITSO poision = inventoryHandler.GetCurrentItem() as PoisionITSO;
-                        if(poision.poisionType == PoisionType.Poision)
-                        {
-                            gameObject.transform.parent.GetComponent<Oven>().emptyFoodHealthType = 
-                            FoodHealthType.Poisioned;
-                            gameObject.transform.parent.GetComponent<Oven>().SetEmptyChanges();
+                        PoisonITSO poision = inventoryHandler.GetCurrentItem() as PoisonITSO;
+                        if (poision.poisonType == PoisionType.Poison)
+                        { 
+                            foodInteract.ItemData.foodHealthType = FoodHealthType.Poisoned;
+
+                            MeshRenderer[] foodMat = gameObject.transform.GetComponentsInChildren<MeshRenderer>(); //sonra deðiþtir
+
+                            Material tempMat = foodInteract.ItemData.poisonedMaterial;
+
+                            for (int i = 0; i < foodMat.Length; i++) 
+                                foodMat[i].material = tempMat;
+
+                            //gameObject.transform.parent.GetComponent<Oven>().emptyFoodHealthType = FoodHealthType.Poisioned;
+                            //gameObject.transform.parent.GetComponent<Oven>().SetEmptyChanges();
                             inventoryHandler.RemoveItem();
-                        }else if(poision.poisionType == PoisionType.Mental)
+                        }else if(poision.poisonType == PoisionType.Mental)
                         {
-                            gameObject.transform.parent.GetComponent<Oven>().emptyFoodHealthType = 
-                            FoodHealthType.Mental;
-                            gameObject.transform.parent.GetComponent<Oven>().SetEmptyChanges();
+                            //gameObject.transform.parent.GetComponent<Oven>().emptyFoodHealthType = FoodHealthType.Mental; 
+                            //gameObject.transform.parent.GetComponent<Oven>().SetEmptyChanges();
                             inventoryHandler.RemoveItem();
                         }
-                    }else {
-                    Debug.Log("Food Interact Oven");
-                    gameObject.transform.parent.GetComponent<Oven>().SetEmpty(true);
-                    inventoryHandler.AddItem(foodInteract.ItemData);
-                    this.gameObject.SetActive(false);
-                    DeInteract();
-                         }
+                    }else 
+                        inventoryHandler.AddItem(foodInteract.ItemData);
+                     
                 }else 
                 {
                 inventoryHandler.AddItem(foodInteract.ItemData);
-                Debug.Log("Food Interact Floor");
                // this.gameObject.SetActive(false);
-                canDestroy = true;
-                DeInteract();
                 //this.gameObject.SetActive(false);
                 }
                 break;
@@ -112,6 +112,72 @@ public class TestObje : MonoBehaviour, IInteractable
                 }
                 //inter.Activate(this.gameObject, hudHandler);
                 break;
+            case ReleaseItemInteract releaseInteraction: //bu script üzerine eþya konulabilir objelere eklenecek.
+                
+                if(inventoryHandler.GetCurrentItem() != null)
+                {
+                    bool isFull = false;
+
+                    string obje = inventoryHandler.GetCurrentItem().itemName;
+                    if (GameObject.Find(obje).TryGetComponent<Transform>(out var objePrefab))
+                    {
+                        Debug.Log(obje);
+                        Debug.Log(objePrefab.parent.name);
+
+                        for (int i = 0; i < transform.childCount; i++)
+                        {
+                            Transform child = transform.GetChild(i);
+
+                            if(child != null)
+                            {
+                                if(child.childCount == 0)
+                                {
+                                    Debug.Log(child.gameObject.name);
+                                    objePrefab.parent = child;
+                                    Debug.Log(objePrefab.parent.name);
+                                }
+                            }
+                            
+                        }
+
+
+                        /*  foreach (Transform child in transform)
+                          {
+                              for (int i = 0; i < child.childCount; i++)
+                              {
+                                  if (child != null)
+                                  {
+                                      if (child.childCount == 0)
+                                      {
+
+
+                                      }
+                                      else
+                                          return;
+                                  }
+                              }
+
+
+                          }
+                        */
+                        if(!isFull)
+                            inventoryHandler.RemoveItem();
+                    }
+                    
+                }
+
+                /* if (!GameObject.Find(obje).TryGetComponent<Transform>(out var objePrefab))
+                 {
+                     objePrefab = playerHand.Find("holder").Find(obje).transform;
+                     if (objePrefab.parent == null)
+                         objePrefab.SetParent(playerHand.Find("holder"));
+                 }*/
+                
+
+
+
+
+                break;
             default:
                 break;
         }
@@ -139,11 +205,21 @@ public class TestObje : MonoBehaviour, IInteractable
         inter.ShowInteractUI(this.gameObject, hudHandler);
     }
 
+
     private void OnTransformParentChanged()
     {
-        transform.localRotation = Quaternion.Euler(itemData.inHandRotation);
-        transform.localPosition = itemData.inHandPosition;
-        transform.localScale = itemData.inHandScale;
+        if(transform.parent.gameObject.CompareTag("Player"))
+        {
+            transform.localRotation = Quaternion.Euler(itemData.inHandRotation);
+            transform.localPosition = itemData.inHandPosition;
+            transform.localScale = itemData.inHandScale;
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(itemData.onObjectRotation);
+            transform.localPosition = itemData.onObjectPosition;
+            //transform.localScale = itemData.onObjectScale;
+        }
     }
 
 }

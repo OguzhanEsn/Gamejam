@@ -111,14 +111,14 @@ public class Patient : MonoBehaviour, IInteractable
                 if(inventoryHandler.GetCurrentItem() is FoodITSO && !hasDamagedToday)
                 {
                     FoodITSO food = inventoryHandler.GetCurrentItem() as FoodITSO;
-                    if(food.foodHealthType == FoodHealthType.Poisioned)
+                    if(food.foodHealthType == FoodHealthType.Poisoned)
                     {
-                        HandleFood(food.cookingType);
+                        //HandleFood(food.cookingType);
                         DecreaseHealth(ContractType.Poison);
                         IsPoisoned = true;
                     }else if(food.foodHealthType == FoodHealthType.Mental)
                     {
-                        food.cookingType = CookingType.Burned;
+                        //food.cookingType = CookingType.Burned;
                         DecreaseHealth(ContractType.MakeCrazy);
                     }else if(food.foodHealthType == FoodHealthType.Natural)
                     { //Check it is raw or not ?

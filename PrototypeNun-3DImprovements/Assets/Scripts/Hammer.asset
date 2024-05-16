@@ -21,4 +21,7 @@ MonoBehaviour:
   inHandPosition: {x: 0, y: 0, z: 0}
   inHandRotation: {x: -70, y: 80, z: 180}
   inHandScale: {x: 4, y: 4, z: 4}
+  onObjectPosition: {x: 0, y: 0, z: 0.009}
+  onObjectRotation: {x: 0, y: 0, z: 0}
+  onObjectScale: {x: 0.1, y: 0.1, z: 0.1}
   weaponDamage: 100

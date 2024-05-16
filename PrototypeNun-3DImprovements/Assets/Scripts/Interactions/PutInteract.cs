@@ -25,15 +25,8 @@ public class PutInteract : Interactions
 
     public override void ShowInteractUI(GameObject go, HudHandler hudHandler)
     {
-        if(go.GetComponent<Oven>().IsEmpty)
-        {
-            //YouCanPut
+          //YouCanPut
             hudHandler.ActivateHudElement(UIElements.InteractableUI, go.transform, 1.0f, typeText, itemText);
-        }else 
-        {
-            hudHandler.ActivateHudElement(UIElements.InteractableUI, go.transform, 1.0f, "Its full,you cant put", itemText);
-        }
-
 
         //hudHandler.ActivateHudElement(UIElements.InteractableUI, go.transform, 1.0f, typeText, itemText);
     }

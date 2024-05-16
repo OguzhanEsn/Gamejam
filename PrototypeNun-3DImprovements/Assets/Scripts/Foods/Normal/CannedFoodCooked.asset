@@ -21,6 +21,6 @@ MonoBehaviour:
   inHandPosition: {x: 0, y: 0, z: 0}
   inHandRotation: {x: 0, y: 0, z: 0}
   inHandScale: {x: 0, y: 0, z: 0}
-  foodHealthType: 1
+  foodHealthType: 0
   cookingType: 1
   coockingTime: 25

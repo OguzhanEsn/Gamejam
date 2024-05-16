@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Oven : MonoBehaviour, IInteractable
+public class Oven : MonoBehaviour
 {
     [SerializeField] Interactions inter;
     [SerializeField] HudHandler hudHandler; //Testing
@@ -44,7 +44,7 @@ public class Oven : MonoBehaviour, IInteractable
         inter.Deactivate(this.gameObject, hudHandler);
     }
 
-    public void Interact()
+    /*public void Interact()
     {
         if(inter is PutInteract putInteract && IsEmpty)
         {
@@ -64,7 +64,7 @@ public class Oven : MonoBehaviour, IInteractable
                     emptyItem.SetActive(true);
 
                     emptyItem.GetComponent<TestObje>().ItemData = inventoryHandler.GetCurrentItem();
-                    emptyItem.GetComponent<TestObje>().isInOwen = true;
+                    //emptyItem.GetComponent<TestObje>().isInOwen = true;
                     inventoryHandler.RemoveItem();
 
                     FoodITSO emptyFoodData = emptyItem.GetComponent<TestObje>().ItemData as FoodITSO;
@@ -104,30 +104,30 @@ public class Oven : MonoBehaviour, IInteractable
         
     }
 
-   public void SetEmptyChanges()
-   {
-     ChangeEmptyItem(emptyCookingType, emptyFoodHealthType);
-   }
+    public void SetEmptyChanges()
+    {
+      ChangeEmptyItem(emptyCookingType, emptyFoodHealthType);
+    }
 
-   
-    void SetNextCookingTime(float newTime)
-    {
-        nextCookingTime = newTime;
-        //emptyCookingType = emptyItem.GetComponent<TestObje>().ItemData.GetComponent<FoodITSO>().cookingType;
-        //emptyFoodHealthType = emptyItem.GetComponent<TestObje>().ItemData.GetComponent<FoodITSO>().foodHealthType;
-        //nextCookingTime = emptyItem.GetComponent<TestObje>().ItemData.GetComponent<FoodITSO>().coockingTime;
-    }
-    void ChangeEmptyItem(CookingType cookingType, FoodHealthType foodHealthType)
-    {
-       foreach(FoodITSO food in foodList)
-       {
-           if(food.cookingType == cookingType && food.foodHealthType == foodHealthType)
-           {
-               emptyItem.GetComponent<TestObje>().ItemData = food;
-           }
-       }
-    }
-    
+
+     void SetNextCookingTime(float newTime)
+     {
+         nextCookingTime = newTime;
+         //emptyCookingType = emptyItem.GetComponent<TestObje>().ItemData.GetComponent<FoodITSO>().cookingType;
+         //emptyFoodHealthType = emptyItem.GetComponent<TestObje>().ItemData.GetComponent<FoodITSO>().foodHealthType;
+         //nextCookingTime = emptyItem.GetComponent<TestObje>().ItemData.GetComponent<FoodITSO>().coockingTime;
+     }
+     void ChangeEmptyItem(CookingType cookingType, FoodHealthType foodHealthType)
+     {
+        foreach(FoodITSO food in foodList)
+        {
+            if(food.cookingType == cookingType && food.foodHealthType == foodHealthType)
+            {
+                emptyItem.GetComponent<TestObje>().ItemData = food;
+            }
+        }
+     }
+
 
 
     // Update is called once per frame
@@ -168,5 +168,5 @@ public class Oven : MonoBehaviour, IInteractable
 
         }
         
-    }
+    }*/
 }

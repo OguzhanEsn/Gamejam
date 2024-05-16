@@ -21,6 +21,8 @@ MonoBehaviour:
   inHandPosition: {x: 0, y: 0, z: 0}
   inHandRotation: {x: 0, y: 0, z: 0}
   inHandScale: {x: 0.5, y: 0.5, z: 0.5}
+  onObjectPosition: {x: 0, y: 0, z: 0}
+  onObjectRotation: {x: 0, y: 0, z: 0}
+  onObjectScale: {x: 0.5, y: 0.5, z: 0.5}
   foodHealthType: 1
-  cookingType: 1
-  coockingTime: 25
+  poisonedMaterial: {fileID: 0}

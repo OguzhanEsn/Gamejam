@@ -8,9 +8,10 @@ public class FoodITSO : ItemSO
 {
 
     public FoodHealthType foodHealthType;
-    public CookingType cookingType;
-    public int coockingTime;
+    //public CookingType cookingType;
+    //public int coockingTime;
 
+    public Material poisonedMaterial;
 
 }
 
@@ -25,7 +26,7 @@ public enum CookingType
 public enum FoodHealthType
 {
     Natural = 0,
-    Poisioned = 1,
+    Poisoned = 1,
     Mental = 2
 
 }

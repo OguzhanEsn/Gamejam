@@ -18,5 +18,5 @@ MonoBehaviour:
   typeText: Pick
   foodNameText: Food Name
   foodCookingTypeText: Cooking Type
-  ItemData: {fileID: 11400000, guid: 87e051721b2d4784fb9b7b187670539a, type: 2}
-  cookingType: 0
+  isPoisoned: 0
+  ItemData: {fileID: 11400000, guid: 20efaccc0d6ef2d4c9e4c1e9d925f8e7, type: 2}

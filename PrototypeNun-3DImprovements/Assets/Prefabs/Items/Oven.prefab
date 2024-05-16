@@ -124,8 +124,8 @@ MonoBehaviour:
   hudHandler: {fileID: 0}
   inventoryHandler: {fileID: 0}
   itemData: {fileID: 0}
-  isInOwen: 0
   isOpen: 0
+  inventoryNumber: 0
 --- !u!1 &2816163442451884538
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +252,6 @@ GameObject:
   - component: {fileID: 8020932484714877098}
   - component: {fileID: 4294411834740824005}
   - component: {fileID: 8635321993824930505}
-  - component: {fileID: 463347186585012024}
   m_Layer: 0
   m_Name: Oven
   m_TagString: Untagged
@@ -268,9 +267,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7055678573605592420}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.761, y: 0.454, z: 1.125}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1284476826367102875}
@@ -350,38 +349,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4427492546020199780, guid: a695514cf7bb4ac4c9c8d65969dd7850, type: 3}
---- !u!114 &463347186585012024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7055678573605592420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278aa5867c7e4714681cbbebc27ae098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inter: {fileID: 11400000, guid: 98085eaf4b480364a80dadd600ef28cd, type: 2}
-  hudHandler: {fileID: 0}
-  inventoryHandler: {fileID: 0}
-  emptyItem: {fileID: 649156484801571393}
-  gassLevel: 100
-  cookPoint: {fileID: 6331718825275668939}
-  foodList:
-  - {fileID: 11400000, guid: 87e051721b2d4784fb9b7b187670539a, type: 2}
-  - {fileID: 11400000, guid: add09819d3af96a4198ce53619845e77, type: 2}
-  - {fileID: 11400000, guid: 1f50edc183fb34d428fe7e53e22ffe57, type: 2}
-  - {fileID: 11400000, guid: 2efeb9458cdc0aa4fa543e043986fed4, type: 2}
-  - {fileID: 11400000, guid: 285e37e0345f1ec4aa9c68e59b0f2f9b, type: 2}
-  - {fileID: 11400000, guid: 93d8de13f2fc1b040a1c5fa34f80a38a, type: 2}
-  - {fileID: 11400000, guid: dc4d644a9ed4fd941946b625f504d3c6, type: 2}
-  - {fileID: 11400000, guid: 2dc2080f41b25f141a040d8de05bcd3f, type: 2}
-  - {fileID: 11400000, guid: a84f0b7de8420014e9d346c7312bdf49, type: 2}
-  IsEmpty: 1
-  emptyCookingType: 0
-  emptyFoodHealthType: 0
-  nextCookingTime: 0
 --- !u!1 &8185504223116679040
 GameObject:
   m_ObjectHideFlags: 0
