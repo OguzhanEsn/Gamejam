@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7483cb0e230e2842bb783f18fc82324, type: 3}
-  m_Name: Tray
+  m_Name: Tray 1
   m_EditorClassIdentifier: 
   uiIcon: {fileID: 21300000, guid: 9fbdd16de55ee0b438cdcec322e6e61f, type: 3}
   itemPrefab: {fileID: 5504984377894371894, guid: 01ea28a5c31ff3a4ab9456ee65ca9729,
     type: 3}
-  itemName: Food Tray
+  itemName: Food Tray (1)
   itemDescription: Tray
   itemID: 0
   isStackable: 0

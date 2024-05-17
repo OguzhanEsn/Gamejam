@@ -27,9 +27,14 @@ public class FoodInteract : Interactions
     public override void ShowInteractUI(GameObject go, HudHandler hudHandler)
     {
         itemText = " ";
-        FoodITSO itemData = go.GetComponent<TestObje>().ItemData as FoodITSO; 
+        FoodITSO itemData = go.GetComponent<TestObje>().ItemData as FoodITSO;
+
+
         ItemData = itemData;
         itemText = itemData.itemName + " - " + itemData.foodHealthType;
         hudHandler.ActivateHudElement(UIElements.InteractableUI, go.transform, 1.0f, typeText, itemText);
+        
+
+             
     }
 }

@@ -4,9 +4,10 @@ using UnityEngine;
 public class PoisonITSO : ItemSO
 {
     public PoisionType poisonType;
-    public int poisionTime;
-    public int poisionDamage;
+    public PoisonPotency poisonPotency;
 }
+
+
 
 public enum PoisionType
 {
@@ -14,3 +15,12 @@ public enum PoisionType
     Mental = 1,
     //LaterAdd Physical = 2
 }
+
+public enum PoisonPotency
+{
+    Weak = 1, //hasarlar
+    Normal = 2, 
+    Strong = 3, 
+    Fatal = 10, 
+}
+

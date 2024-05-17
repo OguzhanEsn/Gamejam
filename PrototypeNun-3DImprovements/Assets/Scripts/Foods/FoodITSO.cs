@@ -7,11 +7,13 @@ using UnityEngine;
 public class FoodITSO : ItemSO
 {
 
-    public FoodHealthType foodHealthType;
+    public FoodHealthType foodHealthType = FoodHealthType.Natural;
     //public CookingType cookingType;
     //public int coockingTime;
 
     public Material poisonedMaterial;
+
+    
 
 }
 
@@ -26,7 +28,10 @@ public enum CookingType
 public enum FoodHealthType
 {
     Natural = 0,
-    Poisoned = 1,
-    Mental = 2
+    WeakPoisoned = 1,
+    NormalPoisoned = 2,
+    StrongPoisoned = 3,
+    FatalPoisoned = 4,
+    Mental = 5
 
 }

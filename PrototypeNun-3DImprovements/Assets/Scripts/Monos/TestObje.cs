@@ -1,6 +1,6 @@
-using MiniGames;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class TestObje : MonoBehaviour, IInteractable
 {
@@ -8,7 +8,7 @@ public class TestObje : MonoBehaviour, IInteractable
 
     [SerializeField] HudHandler hudHandler; //Testing
 
-    [SerializeField] InventoryHandler inventoryHandler;
+    [SerializeField] public InventoryHandler inventoryHandler;
 
     [SerializeField] ItemSO itemData;
 
@@ -54,7 +54,24 @@ public class TestObje : MonoBehaviour, IInteractable
                         PoisonITSO poision = inventoryHandler.GetCurrentItem() as PoisonITSO;
                         if (poision.poisonType == PoisionType.Poison)
                         { 
-                            foodInteract.ItemData.foodHealthType = FoodHealthType.Poisoned;
+                            switch(poision.poisonPotency)
+                            {
+                                case PoisonPotency.Weak:
+                                    foodInteract.ItemData.foodHealthType = FoodHealthType.WeakPoisoned;
+                                    break;
+                                case PoisonPotency.Normal:
+                                    foodInteract.ItemData.foodHealthType = FoodHealthType.NormalPoisoned;
+                                    break;
+                                case PoisonPotency.Strong:
+                                    foodInteract.ItemData.foodHealthType = FoodHealthType.StrongPoisoned;
+                                    break;
+                                case PoisonPotency.Fatal:
+                                    foodInteract.ItemData.foodHealthType = FoodHealthType.FatalPoisoned;
+                                    break;
+
+                            }
+
+                            
 
                             MeshRenderer[] foodMat = gameObject.transform.GetComponentsInChildren<MeshRenderer>(); //sonra deðiþtir
 
@@ -112,58 +129,34 @@ public class TestObje : MonoBehaviour, IInteractable
                 }
                 //inter.Activate(this.gameObject, hudHandler);
                 break;
-            case ReleaseItemInteract releaseInteraction: //bu script üzerine eþya konulabilir objelere eklenecek.
+            case ReleaseItemInteract releaseInteraction: //bu script, üzerine eþya konulabilir objelere de eklenecek.
                 
                 if(inventoryHandler.GetCurrentItem() != null)
                 {
-                    bool isFull = false;
+                    bool isPlaced = false;
 
                     string obje = inventoryHandler.GetCurrentItem().itemName;
                     if (GameObject.Find(obje).TryGetComponent<Transform>(out var objePrefab))
-                    {
+    {
                         Debug.Log(obje);
                         Debug.Log(objePrefab.parent.name);
 
-                        for (int i = 0; i < transform.childCount; i++)
+                        foreach (Transform item in transform)
                         {
-                            Transform child = transform.GetChild(i);
-
-                            if(child != null)
-                            {
-                                if(child.childCount == 0)
-                                {
-                                    Debug.Log(child.gameObject.name);
-                                    objePrefab.parent = child;
-                                    Debug.Log(objePrefab.parent.name);
-                                }
+                            if (item.childCount == 0 && !isPlaced)
+            {
+                                objePrefab.parent = item;
+                                isPlaced = true;
+                                break;
                             }
-                            
                         }
 
-
-                        /*  foreach (Transform child in transform)
-                          {
-                              for (int i = 0; i < child.childCount; i++)
-                              {
-                                  if (child != null)
-                                  {
-                                      if (child.childCount == 0)
-                                      {
-
-
-                                      }
-                                      else
-                                          return;
-                                  }
-                              }
-
-
-                          }
-                        */
-                        if(!isFull)
+                        if (isPlaced)
+                        {
                             inventoryHandler.RemoveItem();
+                        }
                     }
-                    
+
                 }
 
                 /* if (!GameObject.Find(obje).TryGetComponent<Transform>(out var objePrefab))

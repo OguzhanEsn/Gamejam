@@ -11,12 +11,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 841fa7f09e2648043b7dea910644510a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.707298
+      value: -11.812
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 841fa7f09e2648043b7dea910644510a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.472
+      value: 1.4724331
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 841fa7f09e2648043b7dea910644510a,
         type: 3}
@@ -31,17 +31,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 841fa7f09e2648043b7dea910644510a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 841fa7f09e2648043b7dea910644510a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 841fa7f09e2648043b7dea910644510a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 841fa7f09e2648043b7dea910644510a,
         type: 3}
@@ -125,6 +125,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 528040606991665167}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 841fa7f09e2648043b7dea910644510a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4735183033706172218}
   m_SourcePrefab: {fileID: 100100000, guid: 841fa7f09e2648043b7dea910644510a, type: 3}
 --- !u!1 &5504984377894371894 stripped
 GameObject:
@@ -168,6 +172,19 @@ MonoBehaviour:
   inter: {fileID: 11400000, guid: 927f705cf3a6415478792f1e3ecc7a29, type: 2}
   hudHandler: {fileID: 0}
   inventoryHandler: {fileID: 0}
-  itemData: {fileID: 11400000, guid: 20efaccc0d6ef2d4c9e4c1e9d925f8e7, type: 2}
+  itemData: {fileID: 11400000, guid: 116551928c5577c4da937747a8c9b5b1, type: 2}
   isOpen: 0
   inventoryNumber: 0
+--- !u!114 &4735183033706172218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5504984377894371894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c96e9a51a18e247bc3765b807c6a1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  food: {fileID: 11400000, guid: 116551928c5577c4da937747a8c9b5b1, type: 2}

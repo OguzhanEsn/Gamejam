@@ -55,7 +55,7 @@ public class Patient : MonoBehaviour, IInteractable
     private MeshCollider _meshCollider;
     #endregion
 
-    public void DecreaseHealth(ContractType contractType)
+    public void DecreaseHealth(ContractType contractType, int damage)
     {
         if(hasDamagedToday) return;
 
@@ -71,11 +71,16 @@ public class Patient : MonoBehaviour, IInteractable
                 break;
             case ContractType.Poison:
                 hasDamagedToday= true;
-                physicalHealth -= 1;
+                physicalHealth -= damage;
                 break;
             default:
                 break;
         }
+
+        if(physicalHealth <= 0)
+            IsDead = true;
+        else IsDead = false;
+
     }
 
     // Start is called before the first frame update
@@ -111,19 +116,54 @@ public class Patient : MonoBehaviour, IInteractable
                 if(inventoryHandler.GetCurrentItem() is FoodITSO && !hasDamagedToday)
                 {
                     FoodITSO food = inventoryHandler.GetCurrentItem() as FoodITSO;
-                    if(food.foodHealthType == FoodHealthType.Poisoned)
+
+                    switch(food.foodHealthType)
                     {
-                        //HandleFood(food.cookingType);
-                        DecreaseHealth(ContractType.Poison);
-                        IsPoisoned = true;
-                    }else if(food.foodHealthType == FoodHealthType.Mental)
+                        case FoodHealthType.WeakPoisoned:
+                            DecreaseHealth(ContractType.Poison, (int)FoodHealthType.WeakPoisoned);
+                            IsPoisoned = true;
+                            break;
+                        case FoodHealthType.NormalPoisoned:
+                            DecreaseHealth(ContractType.Poison, (int)FoodHealthType.NormalPoisoned);
+                            IsPoisoned = true;
+                            break;
+                        case FoodHealthType.StrongPoisoned:
+                            DecreaseHealth(ContractType.Poison, (int)FoodHealthType.StrongPoisoned);
+                            IsPoisoned = true;
+                            break;
+                        case FoodHealthType.FatalPoisoned:
+                            DecreaseHealth(ContractType.Poison, (int)FoodHealthType.FatalPoisoned);
+                            IsPoisoned = true;
+                            break;
+                    }
+
+
+                    if(food.foodHealthType == FoodHealthType.Mental)
                     {
                         //food.cookingType = CookingType.Burned;
-                        DecreaseHealth(ContractType.MakeCrazy);
+                        //DecreaseHealth(ContractType.MakeCrazy);
                     }else if(food.foodHealthType == FoodHealthType.Natural)
                     { //Check it is raw or not ?
                         
-                    }inventoryHandler.RemoveItem();
+                    }
+
+                    /* Transform foodTrayPlace = transform.Find("FoodTrayPlace");
+
+                     string obje = inventoryHandler.GetCurrentItem().itemName;
+                     /* if (!GameObject.Find(obje).TryGetComponent<Transform>(out var objePrefab))
+                      {
+                          objePrefab = playerHand.Find("holder").Find(obje).transform;
+                          if (objePrefab.parent == null)
+                              objePrefab.SetParent(playerHand.Find("holder"));
+                      }
+                     if (GameObject.Find(obje).TryGetComponent<Transform>(out var objePrefab))
+                     {
+
+                         objePrefab.parent = foodTrayPlace;
+
+                     }
+                     */
+                    inventoryHandler.RemoveItem();
                     
                 } else if(inventoryHandler.GetCurrentItem() is WeaponITSO)
                 {
@@ -190,7 +230,7 @@ public class Patient : MonoBehaviour, IInteractable
 
 
     
-    void HandleFood(CookingType cookingType)
+   /* void HandleFood(CookingType cookingType)
     {
         switch(cookingType)
         {
@@ -207,7 +247,7 @@ public class Patient : MonoBehaviour, IInteractable
                 break;
         }
 
-    }
+    }*/
 
     public void SetDayBools()
     {
@@ -237,4 +277,9 @@ public enum ContractType
     Poison,
     Kill,
     MakeCrazy,
+}
+
+public enum ContractTime
+{
+    oneDay = 1, twoDay = 2, threeDay = 3,
 }
