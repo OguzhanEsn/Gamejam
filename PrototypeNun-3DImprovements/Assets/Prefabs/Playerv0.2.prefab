@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2511173812289011678}
   m_Layer: 0
   m_Name: holder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -525,7 +525,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 4009402764973538557}
   animator: {fileID: 7932096569177717546}
-  camHolder: {fileID: 0}
+  camHolder: {fileID: 2760276955945679337}
+  holder: {fileID: 0}
   mouseSensitivity: 3.5
   walkSpeed: 9
   gravity: -13

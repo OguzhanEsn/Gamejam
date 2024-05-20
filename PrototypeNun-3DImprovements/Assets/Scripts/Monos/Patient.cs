@@ -96,10 +96,10 @@ public class Patient : MonoBehaviour, IInteractable
 
         //paheadImage = patientInfo.headImage;
         nameText.text = firstName;
-        daysLeftText.text = patientInfo.daysLeftText;
+        daysLeftText.text = daysHeWillStay.ToString();
         roomNumberText.text = patientInfo.roomNumberText;
         complainText.text = patientInfo.complainText;
-        
+
 
     }
 
@@ -113,11 +113,11 @@ public class Patient : MonoBehaviour, IInteractable
         switch(inter)
         {
             case PatientInteract patientInteract:
-                if(inventoryHandler.GetCurrentItem() is FoodITSO && !hasDamagedToday)
+                if (inventoryHandler.GetCurrentItem() is FoodITSO && !hasDamagedToday)
                 {
                     FoodITSO food = inventoryHandler.GetCurrentItem() as FoodITSO;
 
-                    switch(food.foodHealthType)
+                    switch (food.foodHealthType)
                     {
                         case FoodHealthType.WeakPoisoned:
                             DecreaseHealth(ContractType.Poison, (int)FoodHealthType.WeakPoisoned);
@@ -138,13 +138,13 @@ public class Patient : MonoBehaviour, IInteractable
                     }
 
 
-                    if(food.foodHealthType == FoodHealthType.Mental)
+                    if (food.foodHealthType == FoodHealthType.Mental)
                     {
                         //food.cookingType = CookingType.Burned;
                         //DecreaseHealth(ContractType.MakeCrazy);
-                    }else if(food.foodHealthType == FoodHealthType.Natural)
+                    } else if (food.foodHealthType == FoodHealthType.Natural)
                     { //Check it is raw or not ?
-                        
+
                     }
 
                     /* Transform foodTrayPlace = transform.Find("FoodTrayPlace");
@@ -164,17 +164,18 @@ public class Patient : MonoBehaviour, IInteractable
                      }
                      */
                     inventoryHandler.RemoveItem();
-                    
+
                 } else if(inventoryHandler.GetCurrentItem() is WeaponITSO)
                 {
                     WeaponITSO weapon = inventoryHandler.GetCurrentItem() as WeaponITSO;
                     PlayerController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+                    Debug.Log(gameObject.name);
                     player.PlayKillAnimation(weapon, killPos);
                     Debug.Log(killPos.gameObject.name);
                     IsMurdered = true;
                     IsDead = true;
                 }
-                Debug.Log("Patient Interact");
+                
                 break;
         }
     }
@@ -258,6 +259,7 @@ public class Patient : MonoBehaviour, IInteractable
 
         if(daysHeWillStay <= 0)
         {
+            //decrease loyalty
             SetDeath();
             this.gameObject.SetActive(false);
             //SetNull

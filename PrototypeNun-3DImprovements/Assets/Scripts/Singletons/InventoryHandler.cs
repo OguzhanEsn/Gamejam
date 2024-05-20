@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class InventoryHandler : MonoBehaviour
 {
     public int maxStackSize = 8;
@@ -13,35 +13,82 @@ public class InventoryHandler : MonoBehaviour
     [SerializeField] GameObject fakeCurrentItem;
     [SerializeField] GameObject backPack;
     int selectedSlotIndex = -1;
+    public TextMeshProUGUI itemNameText;  // Reference to the Text element
+
+    // Test
+
 
     void Start()
     {
-        //selectedSlotIndex = 0;
-        //itemSlots[selectedSlotIndex].Select();
+        if (itemSlots.Length > 0)
+        {
+            selectedSlotIndex = 0;
+            itemSlots[selectedSlotIndex].Select();
+            UpdateItemNameText();
+        }
     }
 
-    public void ChangeSelectedSlot(int newIndex)
+    void Update()
     {
-        if(selectedSlotIndex >= 0)
+        // Handle scroll wheel input for changing selected slot
+        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+        if (scrollInput > 0f)
+        {
+            ChangeSelectedSlotByOffset(1);  // Scroll up
+        }
+        else if (scrollInput < 0f)
+        {
+            ChangeSelectedSlotByOffset(-1); // Scroll down
+        }
+
+        // Other update logic here
+    }
+
+    public void ChangeSelectedSlotByOffset(int offset)
+    {
+        if (selectedSlotIndex >= 0)
         {
             itemSlots[selectedSlotIndex].Deselect();
         }
 
-        selectedSlotIndex += newIndex;
-        if(selectedSlotIndex < 0)
+        selectedSlotIndex += offset;
+
+        if (selectedSlotIndex < 0)
         {
-            selectedSlotIndex = 7;
+            selectedSlotIndex = itemSlots.Length - 1;
         }
-        else if(selectedSlotIndex > 7)
+        else if (selectedSlotIndex >= itemSlots.Length)
         {
             selectedSlotIndex = 0;
         }
 
+        itemSlots[selectedSlotIndex].Select();
+        GetCurrentItem();
+        UpdateItemNameText();
+    }
+
+    public void ChangeSelectedSlot(int newIndex)
+    {
+        if (selectedSlotIndex >= 0)
+        {
+            itemSlots[selectedSlotIndex].Deselect();
+        }
+
+        selectedSlotIndex = newIndex;
+
+        if (selectedSlotIndex < 0)
+        {
+            selectedSlotIndex = itemSlots.Length - 1;
+        }
+        else if (selectedSlotIndex >= itemSlots.Length)
+        {
+            selectedSlotIndex = 0;
+        }
 
         itemSlots[selectedSlotIndex].Select();
         GetCurrentItem();
+        UpdateItemNameText();
     }
-
 
     public Item FakeCurrentItem()
     {
@@ -51,7 +98,7 @@ public class InventoryHandler : MonoBehaviour
     public int GetCurrentItemNumber()
     {
         UiItem item = itemSlots[selectedSlotIndex].GetComponentInChildren<UiItem>();
-        if(item == null)
+        if (item == null)
         {
             return 0;
         }
@@ -60,8 +107,7 @@ public class InventoryHandler : MonoBehaviour
 
     public ItemSO GetCurrentItem()
     {
-        //Debug.Log("SelectedSlotIndex: " + selectedSlotIndex);
-        if(selectedSlotIndex < 0 || itemSlots[selectedSlotIndex].GetComponentInChildren<UiItem>() == null)
+        if (selectedSlotIndex < 0 || itemSlots[selectedSlotIndex].GetComponentInChildren<UiItem>() == null)
         {
             return null;
         }
@@ -71,77 +117,87 @@ public class InventoryHandler : MonoBehaviour
 
     public void RemoveItem()
     {
-        if(selectedSlotIndex < 0 || itemSlots[selectedSlotIndex].GetComponentInChildren<UiItem>() == null)
+        if (selectedSlotIndex < 0 || itemSlots[selectedSlotIndex].GetComponentInChildren<UiItem>() == null)
         {
             return;
         }
 
         UiItem item = itemSlots[selectedSlotIndex].GetComponentInChildren<UiItem>();
-        if(item.itemCount > 1)
+        if (item.itemCount > 1)
         {
-            item.itemCount --;
+            item.itemCount--;
             item.RefreshCount();
-            //StackedItemRemoved
         }
         else
         {
             Destroy(item.gameObject);
-            if(selectedSlotIndex == 0) 
+            if (selectedSlotIndex == 0)
             {
                 itemSlots[selectedSlotIndex].Deselect();
                 selectedSlotIndex = -1;
+                itemNameText.text = ""; // Clear item name text when inventory is empty
                 return;
             }
 
-
-            ChangeSelectedSlot(-1);
+            ChangeSelectedSlotByOffset(-1);
         }
     }
 
     public bool AddItem(ItemSO item)
     {
-        // Add item to inventory
-        //Find empty slot
-        for(int i = 0; i < itemSlots.Length; i++)
+        for (int i = 0; i < itemSlots.Length; i++)
         {
             UiItemSlot slot = itemSlots[i];
             UiItem itemInSlot = slot.GetComponentInChildren<UiItem>();
-            if(itemInSlot == null)
+            if (itemInSlot == null)
             {
-                // Slot is empty
-               // itemInSlot.itemCount = 1 ;
-                SpawnNewItem(item, slot);
-                ChangeSelectedSlot(1);
+                SpawnNewItem(item, slot, i);
                 return true;
-            } //CheckBelowLater
-            else if(itemInSlot.itemData.itemID == item.itemID && item.isStackable && 
-            itemInSlot.itemCount < maxStackSize)
+            }
+            else if (itemInSlot.itemData.itemID == item.itemID && item.isStackable &&
+                     itemInSlot.itemCount < maxStackSize)
             {
-                //StackOption
-                itemInSlot.itemCount ++;
+                itemInSlot.itemCount++;
                 itemInSlot.RefreshCount();
-                //SpawnNewItem(item, slot); 
-                //We dont need to spawn item that already exists
-                
                 return true;
             }
         }
         return false;
     }
 
-    void SpawnNewItem(ItemSO item, UiItemSlot slot)
+    void SpawnNewItem(ItemSO item, UiItemSlot slot, int slotIndex)
     {
         Debug.Log("Spawning new item");
-        //Debug.Log("ITEMSO: " + item.itemName + " SLOT: " + slot);
-        // Spawn item in the world
-        //GameObject itemGO = Instantiate(item.itemPrefab, slot.transform);
         GameObject itemGO = Instantiate(uiItemPrefab.gameObject, slot.transform);
-        //itemGO.GetComponent<UiItem>().itemData = item;
-        //itemGO.GetComponent<UiItem>().SetItem(item);
         UiItem uiItem = itemGO.GetComponent<UiItem>();
         uiItem.SetItem(item);
+
+        // Set the selected slot to the one where the item was added
+        ChangeSelectedSlot(slotIndex);
+        UpdateItemNameText();
     }
 
-
+    void UpdateItemNameText()
+    {
+        if (selectedSlotIndex >= 0)
+        {
+            UiItem uiItem = itemSlots[selectedSlotIndex].GetComponentInChildren<UiItem>();
+            if (uiItem != null && uiItem.itemData != null)
+            {
+                itemNameText.text = uiItem.itemData.itemName;
+                // Update the position of the itemNameText to be above the selected slot
+                RectTransform slotRectTransform = itemSlots[selectedSlotIndex].GetComponent<RectTransform>();
+                itemNameText.rectTransform.position = slotRectTransform.position + new Vector3(0, slotRectTransform.rect.height, 0);
+            }
+            else
+            {
+                itemNameText.text = "";
+            }
+        }
+        else
+        {
+            itemNameText.text = "";
+        }
+    }
 
 }

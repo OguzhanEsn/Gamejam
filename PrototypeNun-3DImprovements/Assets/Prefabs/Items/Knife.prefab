@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7064895, y: 0, z: 0, w: 0.7077236}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 200, y: 200, z: 200}
+  m_LocalScale: {x: 300, y: 300, z: 300}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,7 +102,6 @@ MonoBehaviour:
   hudHandler: {fileID: 0}
   inventoryHandler: {fileID: 0}
   itemData: {fileID: 11400000, guid: 14ba4e401f34e1d4e8a30ddea48e19aa, type: 2}
-  isInOwen: 0
   isOpen: 0
   inventoryNumber: 0
 --- !u!65 &476581720050723521
@@ -124,5 +123,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.002, y: 0.0003, z: 0.0005}
+  m_Size: {x: 0.006, y: 0.0006, z: 0.0009}
   m_Center: {x: 0.00026589516, y: -1.5837534e-15, z: -0.000013604342}

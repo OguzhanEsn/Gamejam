@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform playerCamera = null; //Eyes
     [SerializeField] Animator animator;
     [SerializeField] Transform camHolder;
+    [SerializeField] Transform holder;
     [SerializeField] float mouseSensitivity = 3.5f;
     [SerializeField] float walkSpeed = 6.0f;
     [SerializeField] float gravity = -13.0f;
@@ -93,8 +94,9 @@ public class PlayerController : MonoBehaviour
         //UpdateMouseLook();
         UpdateMovement();
         InteractCheck();
-        SelectActiveSLot();
+        //SelectActiveSLot();
         ReleaseItem();
+        SetPlayerHand();
     }
 
     void LateUpdate()
@@ -182,8 +184,6 @@ public class PlayerController : MonoBehaviour
         if(inventoryHandler.GetCurrentItem() == null)
         {
 
-            Transform holder = playerHand.Find("holder");
-
             foreach (Transform item in holder)
             {
                 item.gameObject.SetActive(false);
@@ -203,9 +203,9 @@ public class PlayerController : MonoBehaviour
             foreach (Transform item in holder)
             {
 
-                Debug.Log(inventoryHandler.GetCurrentItem().itemName);
                 if (holder.Find(inventoryHandler.GetCurrentItem().itemName) == item)
                 {
+                    Debug.Log(inventoryHandler.GetCurrentItem().itemName);
                     item.gameObject.SetActive(true);
                 }else
                     item.gameObject.SetActive(false);
@@ -256,9 +256,6 @@ public class PlayerController : MonoBehaviour
         }*/
         if (GameObject.Find(obje).TryGetComponent<Transform>(out var objePrefab))
         {
-            Debug.Log(obje);
-            
-            Transform holder = playerHand.Find("holder");
 
             objePrefab.parent = holder;
             
@@ -269,30 +266,51 @@ public class PlayerController : MonoBehaviour
 
     public void PlayKillAnimation(WeaponITSO weaponType, Transform killPos)
     {
-        switch(weaponType.name)
+        SetBusy(true);
+
+        if(!animator.isActiveAndEnabled)
+            animator.enabled = true;
+
+        if (weaponType == null)
+        {
+            Debug.LogError("weaponType is null.");
+            return;
+        }
+        if (killPos == null)
+        {
+            Debug.LogError("killPos is null.");
+            return;
+        }
+
+        switch (weaponType.name)
         {
             case "Knife":
                 transform.position = killPos.position;
                 animator.enabled = true;
-                animator.Play("KnifeKillAnim");               
+                animator.Play("KnifeKillAnim");
+                Debug.Log("Playing KnifeKillAnim");
+                break;
+            default:
+                Debug.LogWarning("Weapon type not handled: " + weaponType.name);
                 break;
         }
     }
 
-    public void SetBusyAnimEvent(AnimationEvent _event)
+    public void SetBusyAnimEvent()
     {
-        SetBusy(Convert.ToBoolean(_event.intParameter));
-        if (_event.intParameter == 0)
-        {
-            animator.enabled = false;
-            Transform holder = playerHand.Find("holder");
-            holder.localRotation = Quaternion.Euler(0f, 0f, 0f);
-            holder.localPosition = Vector3.zero;
-        }
-            
+        /* SetBusy(Convert.ToBoolean(_event.intParameter));
+         if (_event.intParameter == 0)
+         {
+             animator.enabled = false;
+             Transform holder = playerHand.Find("holder");
+             holder.localRotation = Quaternion.Euler(0f, 0f, 0f);
+             holder.localPosition = Vector3.zero;
+         }
+             */
+
+        SetBusy(false);
 
     }
-
 
     void ReleaseItem()
     {
@@ -368,6 +386,7 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             Time.timeScale = 1.0f;
+            animator.enabled = false;
         }
     }
 
@@ -398,7 +417,7 @@ public class PlayerController : MonoBehaviour
     }
 
     
-    public void SelectActiveSLot()
+ /*   public void SelectActiveSLot()
     {
         int slot = 0;
         if(_inputHandler.GetMouseScrollInput() > 0)
@@ -413,7 +432,7 @@ public class PlayerController : MonoBehaviour
 
 
         SetPlayerHand();
-    }
+    }*/
 
     void OnDrawGizmos()
     {

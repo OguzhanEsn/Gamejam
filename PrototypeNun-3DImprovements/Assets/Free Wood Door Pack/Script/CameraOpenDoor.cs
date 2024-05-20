@@ -20,9 +20,10 @@ public class CameraOpenDoor : MonoBehaviour {
 
 				if (Input.GetKeyDown(KeyCode.F))
 					hit.transform.GetComponent<DoorScript.Door> ().OpenDoor();
-			}else{
-				
-			}
+			}else if(hit.transform.GetComponent<Cabinet>()){
+				if(Input.GetKeyDown(KeyCode.F))
+                        hit.transform.GetComponent<Cabinet>().OpenDrawer();
+                }
 		}else{
 			
 		}

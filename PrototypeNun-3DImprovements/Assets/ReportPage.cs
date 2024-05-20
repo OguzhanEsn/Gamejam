@@ -53,6 +53,5 @@ public class ReportPage : MonoBehaviour
     public void EnableUI() 
     {
         hudHandler.RaporUIOpenClose();
-        Debug.Log("123");
     }
 }

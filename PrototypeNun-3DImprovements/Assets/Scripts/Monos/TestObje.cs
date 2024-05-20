@@ -143,6 +143,7 @@ public class TestObje : MonoBehaviour, IInteractable
 
                         foreach (Transform item in transform)
                         {
+                            Debug.Log(item);
                             if (item.childCount == 0 && !isPlaced)
             {
                                 objePrefab.parent = item;
@@ -165,12 +166,15 @@ public class TestObje : MonoBehaviour, IInteractable
                      if (objePrefab.parent == null)
                          objePrefab.SetParent(playerHand.Find("holder"));
                  }*/
-                
-
-
-
 
                 break;
+
+            
+
+            case PatientInteract patientInteract:
+                break;
+
+
             default:
                 break;
         }
@@ -201,7 +205,9 @@ public class TestObje : MonoBehaviour, IInteractable
 
     private void OnTransformParentChanged()
     {
-        if(transform.parent.gameObject.CompareTag("Player"))
+        Transform holderParent = GameObject.FindGameObjectWithTag("holder").GetComponent<Transform>();
+
+        if(transform.parent == holderParent)
         {
             transform.localRotation = Quaternion.Euler(itemData.inHandRotation);
             transform.localPosition = itemData.inHandPosition;

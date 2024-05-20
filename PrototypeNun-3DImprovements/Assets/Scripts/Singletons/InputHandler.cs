@@ -17,11 +17,11 @@ namespace NunPlayerInput
         return moveAction.ReadValue<Vector2>();
     }
 
-    public float GetMouseScrollInput()
+    /*public float GetMouseScrollInput()
     {
        // Debug.Log("Mouse Scroll is pressed: " + scrollerActionY.ReadValue<float>());
         return scrollerActionY.ReadValue<float>();
-    }
+    }*/
 
     #region - OnePushInputs -
     public bool GetInteractInput()
@@ -83,8 +83,8 @@ namespace NunPlayerInput
     mouseActionX = playerInput.CameraMovement.MouseX;
     mouseActionY = playerInput.CameraMovement.MouseY;
 
-    scrollerActionY = playerInput.Interaction.MouseScrollY;
-    scrollerActionY.performed += ctx => GetMouseScrollInput();
+    //scrollerActionY = playerInput.Interaction.MouseScrollY;
+    //scrollerActionY.performed += ctx => GetMouseScrollInput();
     
     //moveAction.performed += ctx => Debug.Log(ctx.ReadValue<Vector2>());
     //mouseActionX.performed += ctx => Debug.Log(ctx.ReadValue<float>());

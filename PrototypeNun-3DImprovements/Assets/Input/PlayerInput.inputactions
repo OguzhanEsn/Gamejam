@@ -256,7 +256,7 @@
                 {
                     "name": "MouseScrollY",
                     "type": "PassThrough",
-                    "id": "19c89bcd-abbb-4bac-ae4a-1b32eb1fddd6",
+                    "id": "6a8c2502-c0c4-4037-8c4a-4bde0e5affc0",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -315,17 +315,6 @@
                 },
                 {
                     "name": "",
-                    "id": "15ee7635-00c1-4f3d-8abe-999dc6b3ef78",
-                    "path": "<Mouse>/scroll/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MouseScrollY",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "c613cdf7-4e51-49b5-b411-f23291b1853b",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -354,6 +343,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ThrowButtonPush",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89afe2de-211d-47d3-a31c-8ae3f3d9ab0a",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseScrollY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ed555ae1-633f-4a10-9f43-c1b9e2a80b9e",
+                    "path": "<Mouse>/scroll/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseScrollY",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -15,15 +15,21 @@ public class Page : MonoBehaviour
 
     public int pageIndex = 0;
 
+    private void Start()
+    {
+        SwapPage();
+    }
+
+
     public void SwapPage() //ayný sayfa, sayfa üzerindeki bilgiler güncellenir.
     {
         if(pageIndex >= patients.Length) pageIndex = 0;
 
 
-        contactName.text = patients[pageIndex].patientInfo.nameText;
-        roomNumber.text = patients[pageIndex].patientInfo.roomNumberText;
-        daysLeft.text = patients[pageIndex].patientInfo.daysLeftText;
-        complainText.text = patients[pageIndex].patientInfo.complainText;
+        contactName.text = "Target Name: " + patients[pageIndex].patientInfo.nameText;
+        roomNumber.text = "Room Number: " + patients[pageIndex].patientInfo.roomNumberText;
+        daysLeft.text = "Days untill Discharged: " + patients[pageIndex].daysHeWillStay;
+        complainText.text = "Complains: " + patients[pageIndex].patientInfo.complainText;
 
         pageIndex++;
     }

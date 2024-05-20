@@ -25,5 +25,5 @@ MonoBehaviour:
   onObjectPosition: {x: 0, y: 0, z: 0}
   onObjectRotation: {x: 0, y: 90, z: 0}
   onObjectScale: {x: 1, y: 1, z: 1}
-  foodHealthType: 1
+  foodHealthType: 0
   poisonedMaterial: {fileID: 2100000, guid: 6de7dd4145a51294285639db57f77d39, type: 2}

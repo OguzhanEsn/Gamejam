@@ -34,7 +34,9 @@ public class Bed : MonoBehaviour, IInteractable
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject playerController = GameObject.FindGameObjectWithTag("Player");
+
+        Debug.Log(playerController);
     }
 
     // Update is called once per frame
