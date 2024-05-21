@@ -200,4 +200,21 @@ public class InventoryHandler : MonoBehaviour
         }
     }
 
+    public bool HasKnife()
+    {
+        foreach (UiItemSlot slot in itemSlots)
+        {
+            UiItem uiItem = slot.GetComponentInChildren<UiItem>();
+            if (uiItem != null && uiItem.itemData != null)
+            {
+
+                if (uiItem.itemData.itemName == "Knife") 
+                {
+                    return true;
+                }
+            }
+        }
+        return false; 
+    }
+
 }

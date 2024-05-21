@@ -34,6 +34,10 @@ public class DialogueManager : MonoBehaviour
     {
         isDialogueActive = true;
 
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         //animator.Play("show");
 
         lines.Clear();

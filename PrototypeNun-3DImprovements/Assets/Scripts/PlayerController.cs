@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using UnityEngine.PlayerLoop;
 using DG.Tweening;
 using System;
-
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] Transform playerCamera = null; //Eyes
@@ -19,6 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool lockCursor = true;
 
     private bool isCrouching = false;
+
+    public bool isInDialogue = false;
 
     private bool isBusy = false;
 
