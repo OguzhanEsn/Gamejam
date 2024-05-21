@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1531713766438019597
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c2ec6e8b5fcf1264aa4ae2b2462d8a2b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3044381
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2ec6e8b5fcf1264aa4ae2b2462d8a2b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000000059604645
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2ec6e8b5fcf1264aa4ae2b2462d8a2b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.7578769
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2ec6e8b5fcf1264aa4ae2b2462d8a2b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2ec6e8b5fcf1264aa4ae2b2462d8a2b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2ec6e8b5fcf1264aa4ae2b2462d8a2b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2ec6e8b5fcf1264aa4ae2b2462d8a2b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2ec6e8b5fcf1264aa4ae2b2462d8a2b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2ec6e8b5fcf1264aa4ae2b2462d8a2b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c2ec6e8b5fcf1264aa4ae2b2462d8a2b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5727322217772362693, guid: c2ec6e8b5fcf1264aa4ae2b2462d8a2b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d0328874fa90bd54ba38d73aabfcb9c6, type: 2}
+    - target: {fileID: 287952123907860019, guid: c2ec6e8b5fcf1264aa4ae2b2462d8a2b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 41964cf92dc2d2a4ab3d6fc9174bcd67, type: 2}
+    - target: {fileID: 919132149155446097, guid: c2ec6e8b5fcf1264aa4ae2b2462d8a2b,
+        type: 3}
+      propertyPath: m_Name
+      value: BloodHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133594991268816952, guid: c2ec6e8b5fcf1264aa4ae2b2462d8a2b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d0328874fa90bd54ba38d73aabfcb9c6, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c2ec6e8b5fcf1264aa4ae2b2462d8a2b, type: 3}
