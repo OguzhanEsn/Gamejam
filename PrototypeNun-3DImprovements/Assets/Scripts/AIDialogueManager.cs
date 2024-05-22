@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor.Rendering;
 public class AIDialogueManager : MonoBehaviour
 {
-    public TextMeshProUGUI dialogueText;
     public Button nextButton;
     private readonly Queue<string> dialogueQueue = new Queue<string>();
     private HashSet<AIDialogue> triggeredDialogues;
@@ -17,7 +17,7 @@ public class AIDialogueManager : MonoBehaviour
         triggeredDialogues = new HashSet<AIDialogue>();
     }
 
-    public void StartDialogue(AIDialogue dialogue, PatrolAI patrolAI)
+    public void StartDialogue(AIDialogue dialogue, PatrolAI patrolAI, TextMeshProUGUI dialogueText)
     {
         if (triggeredDialogues.Contains(dialogue))
         {
@@ -44,10 +44,10 @@ public class AIDialogueManager : MonoBehaviour
 
         Debug.Log("Dialogue started with " + dialogueQueue.Count + " lines.");
       
-        StartCoroutine(nameof(DisplayNextLine));
+        StartCoroutine(DisplayNextLine(dialogueText));
     }
 
-    IEnumerator  DisplayNextLine()
+    IEnumerator  DisplayNextLine(TextMeshProUGUI dialogueText)
     {
         if (dialogueQueue.Count == 0)
         {
@@ -68,7 +68,7 @@ public class AIDialogueManager : MonoBehaviour
             }
 
             yield return new WaitForSeconds(3f);
-            StartCoroutine(nameof(DisplayNextLine));
+            StartCoroutine((DisplayNextLine(dialogueText)));
         }
 
         
@@ -76,7 +76,6 @@ public class AIDialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        dialogueText.text = "";
         currentPatrolAI.EndDialogue();
         currentPatrolAI = null;
 

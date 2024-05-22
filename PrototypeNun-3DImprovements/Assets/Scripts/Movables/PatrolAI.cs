@@ -1,7 +1,7 @@
 using UnityEngine.AI;
 using UnityEngine;
 using System.Collections;
-
+using TMPro;
 public class PatrolAI : MonoBehaviour, IMovable
 {
     private NavMeshAgent _agent;
@@ -9,9 +9,11 @@ public class PatrolAI : MonoBehaviour, IMovable
 
     public bool isStopped = false;
     public bool isInDialogue = false;
+    public bool shouldMove = true;
 
     public AIDialogue dialogue;
     public AIDialogueManager dialogueManager;
+    public TextMeshProUGUI dialogueText;
 
 
     int waypointIndex;
@@ -41,12 +43,12 @@ public class PatrolAI : MonoBehaviour, IMovable
             }
 
 
-        if (!isStopped && !isInDialogue && Vector3.Distance(transform.position, target) < 1)
+        if (!isStopped && shouldMove && !isInDialogue && Vector3.Distance(transform.position, target) < 1)
         {
             IterateWaypointIndex();
         }
 
-        if (!isInDialogue && !isStopped && DetectPlayer())
+        if (!isInDialogue && DetectPlayer())
         {
             
             if (inventoryHandler.HasKnife())
@@ -99,7 +101,7 @@ public class PatrolAI : MonoBehaviour, IMovable
     {
         isInDialogue = true;
         isStopped = true;
-        dialogueManager.StartDialogue(dialogue, this);
+        dialogueManager.StartDialogue(dialogue, this, dialogueText);
     }
 
     public void EndDialogue()
@@ -107,7 +109,7 @@ public class PatrolAI : MonoBehaviour, IMovable
         Debug.Log("5234");
         isInDialogue = false;
         isStopped = false;
-
+        dialogueText.text = "";
     }
 
 }
