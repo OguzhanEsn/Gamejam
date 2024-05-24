@@ -265,7 +265,7 @@ public class PlayerController : MonoBehaviour
         //inventoryHandler.GetCurrentItem().itemImage.transform.SetParent(playerHand);
     }
 
-    public void PlayKillAnimation(WeaponITSO weaponType, Transform killPos)
+    public void PlayKillAnimation(WeaponITSO weaponType, Transform killPos, Patient patient)
     {
         SetBusy(true);
 
@@ -283,18 +283,29 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        switch (weaponType.name)
+        switch (weaponType.itemName)
         {
-            case "Knife":
+            case "Scalpel":
                 transform.position = killPos.position;
                 animator.enabled = true;
                 animator.Play("KnifeKillAnim");
+                weaponType.isBloody = true;
                 Debug.Log("Playing KnifeKillAnim");
+                patient.Die();
                 break;
             default:
                 Debug.LogWarning("Weapon type not handled: " + weaponType.name);
                 break;
         }
+    }
+
+    public void ChangeMaterial(Material material) 
+    {
+        Transform scalpel = holder.Find("Scalpel");
+
+        MeshRenderer mesh = scalpel.GetComponent<MeshRenderer>();
+        mesh.material = material;
+    
     }
 
     public void SetBusyAnimEvent()

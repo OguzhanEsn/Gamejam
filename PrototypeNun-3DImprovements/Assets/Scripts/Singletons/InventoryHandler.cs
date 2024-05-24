@@ -208,7 +208,7 @@ public class InventoryHandler : MonoBehaviour
             if (uiItem != null && uiItem.itemData != null)
             {
 
-                if (uiItem.itemData.itemName == "Knife") 
+                if (uiItem.itemData.itemName == "Scalpel") 
                 {
                     return true;
                 }

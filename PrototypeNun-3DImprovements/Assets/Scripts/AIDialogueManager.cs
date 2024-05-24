@@ -74,6 +74,11 @@ public class AIDialogueManager : MonoBehaviour
         
     }
 
+    public bool IsDialogueTriggered(AIDialogue dialogue)
+    {
+        return triggeredDialogues.Contains(dialogue);
+    }
+
     void EndDialogue()
     {
         currentPatrolAI.EndDialogue();

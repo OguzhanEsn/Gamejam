@@ -10,12 +10,13 @@ public class PatrolAI : MonoBehaviour, IMovable
 
     public bool isStopped = false;
     public bool isInDialogue = false;
-    public bool shouldMove = true;
 
-    public AIDialogue dialogue;
+    public AIDialogue weaponDetected;
+    public AIDialogue bloodyWeaponDetected;
     public AIDialogueManager dialogueManager;
     public TextMeshProUGUI dialogueText;
 
+    public Transform player;
 
     int waypointIndex;
 
@@ -23,6 +24,26 @@ public class PatrolAI : MonoBehaviour, IMovable
 
     public InventoryHandler inventoryHandler;
     public FieldOfView fieldOfView;
+
+    public AIDialogue targetKilledNearby;
+
+    void OnEnable()
+    {
+        Patient.OnPatientKilled += HandlePatientKilled;
+    }
+
+    void OnDisable()
+    {
+        Patient.OnPatientKilled -= HandlePatientKilled;
+    }
+
+    void HandlePatientKilled(Patient patient)
+    {
+        if (fieldOfView.IsTargetVisible(player))
+        {
+            StartDialogue(targetKilledNearby);
+        }
+    }
 
     void Awake()
     {
@@ -45,7 +66,7 @@ public class PatrolAI : MonoBehaviour, IMovable
             }
 
 
-        if (!isStopped && shouldMove && !isInDialogue && Vector3.Distance(transform.position, target) < 1)
+        if (!isStopped && !isInDialogue && Vector3.Distance(transform.position, target) < 1)
         {
             IterateWaypointIndex();
         }
@@ -56,7 +77,10 @@ public class PatrolAI : MonoBehaviour, IMovable
             if (inventoryHandler.HasKnife())
             {
                 Debug.Log("has knife");
-                StartDialogue();
+
+                WeaponITSO scalpelSO = inventoryHandler.GetCurrentItem() as WeaponITSO;
+
+                StartDialogue(weaponDetected);
 
             }
         }
@@ -102,13 +126,17 @@ public class PatrolAI : MonoBehaviour, IMovable
         return false; 
     }
 
-    void StartDialogue()
+    void StartDialogue(AIDialogue aIDialogue)
     {
-        animator.SetBool("isMoving", false);
-        isInDialogue = true;
-        isStopped = true;
-        shouldMove = false;
-        dialogueManager.StartDialogue(dialogue, this, dialogueText);
+        if (!isInDialogue && dialogueManager != null && !dialogueManager.IsDialogueTriggered(aIDialogue))
+        {
+            Debug.Log("Starting dialogue...");
+            animator.SetBool("isMoving", false);
+            isInDialogue = true;
+            isStopped = true;
+
+            dialogueManager.StartDialogue(aIDialogue, this, dialogueText);
+        }
     }
 
     public void EndDialogue()
@@ -116,8 +144,8 @@ public class PatrolAI : MonoBehaviour, IMovable
         Debug.Log("5234");
         isInDialogue = false;
         isStopped = false;
-        shouldMove = true;
         dialogueText.text = "";
+        Debug.Log("bitti");
     }
 
 }

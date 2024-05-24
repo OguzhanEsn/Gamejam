@@ -56,6 +56,20 @@ public class Patient : MonoBehaviour, IInteractable
     private MeshCollider _meshCollider;
     #endregion
 
+
+    public delegate void PatientKilled(Patient patient);
+    public static event PatientKilled OnPatientKilled;
+
+    public void Die()
+    {
+        // Trigger the death event
+        if (OnPatientKilled != null)
+        {
+            OnPatientKilled?.Invoke(this);
+        }
+
+    }
+
     public void DecreaseHealth(ContractType contractType, int damage)
     {
         if(hasDamagedToday) return;
@@ -171,7 +185,7 @@ public class Patient : MonoBehaviour, IInteractable
                     WeaponITSO weapon = inventoryHandler.GetCurrentItem() as WeaponITSO;
                     PlayerController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
                     Debug.Log(gameObject.name);
-                    player.PlayKillAnimation(weapon, killPos);
+                    player.PlayKillAnimation(weapon, killPos, this);
                     Debug.Log(killPos.gameObject.name);
                     IsMurdered = true;
                     IsDead = true;
