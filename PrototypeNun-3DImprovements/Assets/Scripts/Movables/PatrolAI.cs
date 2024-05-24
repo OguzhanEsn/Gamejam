@@ -6,6 +6,7 @@ public class PatrolAI : MonoBehaviour, IMovable
 {
     private NavMeshAgent _agent;
     public Transform[] waypoints;
+    public Animator animator;
 
     public bool isStopped = false;
     public bool isInDialogue = false;
@@ -39,7 +40,8 @@ public class PatrolAI : MonoBehaviour, IMovable
     {
          if(isStopped)
             {
-                return;
+            animator.SetBool("isMoving", false);
+            return;
             }
 
 
@@ -55,6 +57,7 @@ public class PatrolAI : MonoBehaviour, IMovable
             {
                 Debug.Log("has knife");
                 StartDialogue();
+
             }
         }
     }
@@ -65,13 +68,15 @@ public class PatrolAI : MonoBehaviour, IMovable
         isStopped = false;
         target = waypoints[waypointIndex].position;
         _agent.SetDestination(target);
+        animator.SetBool("isMoving", true);
     }
 
     void IterateWaypointIndex()
     {
         waypointIndex = (waypointIndex + 1) % waypoints.Length;
         isStopped = true;
-        UpdateDestination();
+        animator.SetBool("isMoving", false);
+        Invoke(nameof(UpdateDestination), 3f);
     }
 
     public void CheckMovement(bool isStop)
@@ -99,8 +104,10 @@ public class PatrolAI : MonoBehaviour, IMovable
 
     void StartDialogue()
     {
+        animator.SetBool("isMoving", false);
         isInDialogue = true;
         isStopped = true;
+        shouldMove = false;
         dialogueManager.StartDialogue(dialogue, this, dialogueText);
     }
 
@@ -109,6 +116,7 @@ public class PatrolAI : MonoBehaviour, IMovable
         Debug.Log("5234");
         isInDialogue = false;
         isStopped = false;
+        shouldMove = true;
         dialogueText.text = "";
     }
 

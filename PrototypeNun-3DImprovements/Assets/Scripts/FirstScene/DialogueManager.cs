@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI charName;
     public TextMeshProUGUI diaArea;
     public AudioSource source;
+    public Button skipButton;
 
     private readonly Queue<DialogueLine> lines = new Queue<DialogueLine>();
 
@@ -21,7 +22,7 @@ public class DialogueManager : MonoBehaviour
 
     public float typingSpeed = 0.001f;
 
-    //public Animator animator;
+    public Animator animator;
 
     // Start is called before the first frame update
     private void Awake()
@@ -29,6 +30,8 @@ public class DialogueManager : MonoBehaviour
         if(instance == null)
             instance = this;
     }
+
+
 
     public void StartDialouge(Dialogue dialogue)
     {
@@ -84,7 +87,12 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         isDialogueActive = false;
+
+        animator.Play("CanvasFirst");
+    }
+
+    public void LoadNextScene()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //animator.Play("hide");
     }
 }

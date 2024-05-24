@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7483cb0e230e2842bb783f18fc82324, type: 3}
   m_Name: Tray 1
   m_EditorClassIdentifier: 
-  uiIcon: {fileID: 21300000, guid: 9fbdd16de55ee0b438cdcec322e6e61f, type: 3}
+  uiIcon: {fileID: 21300000, guid: 46f32cad24b3d434a98f19b157c29d24, type: 3}
   itemPrefab: {fileID: 5504984377894371894, guid: 01ea28a5c31ff3a4ab9456ee65ca9729,
     type: 3}
   itemName: Food Tray (1)

@@ -57,22 +57,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 64be3dbcb3eb3fe4cbb5196865926e13,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -26.926
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64be3dbcb3eb3fe4cbb5196865926e13,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64be3dbcb3eb3fe4cbb5196865926e13,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -105.695
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64be3dbcb3eb3fe4cbb5196865926e13,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64be3dbcb3eb3fe4cbb5196865926e13,
         type: 3}
@@ -82,7 +82,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 64be3dbcb3eb3fe4cbb5196865926e13,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64be3dbcb3eb3fe4cbb5196865926e13,
         type: 3}
@@ -97,7 +97,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 64be3dbcb3eb3fe4cbb5196865926e13,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64be3dbcb3eb3fe4cbb5196865926e13,
         type: 3}
@@ -960,7 +960,7 @@ MonoBehaviour:
   physicalHealth: 1
   rank: 2
   roomNumber: 1
-  daysHeWillStay: 4
+  daysHeWillStay: 3
   hasDamagedToday: 0
   hasComplain: 0
   IsMurdered: 0
@@ -996,7 +996,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Size: {x: 1, y: 1.5, z: 3}
   m_Center: {x: 0, y: 1.09, z: 0}
 --- !u!4 &5495803975170505766 stripped
 Transform:
