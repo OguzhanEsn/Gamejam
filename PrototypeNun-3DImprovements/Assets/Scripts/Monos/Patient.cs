@@ -45,6 +45,7 @@ public class Patient : MonoBehaviour, IInteractable
     public TextMeshProUGUI daysLeftText;
     public TextMeshProUGUI complainText;
     public TextMeshProUGUI roomNumberText;
+    public TextMeshProUGUI daysLeftToKillText;
 
     bool canDestroy = false;
 
@@ -97,9 +98,9 @@ public class Patient : MonoBehaviour, IInteractable
         //paheadImage = patientInfo.headImage;
         nameText.text = firstName;
         daysLeftText.text = daysHeWillStay.ToString();
-        roomNumberText.text = patientInfo.roomNumberText;
+        roomNumberText.text = patientInfo.roomNumberText.ToString();
         complainText.text = patientInfo.complainText;
-
+        daysLeftToKillText.text = patientInfo.daysLeftToKill.ToString();    
 
     }
 

@@ -9,8 +9,9 @@ public class ReportISO : ScriptableObject
 
     public Image headImage;
     public string nameText;
-    public string daysLeftText;
+    public int daysLeftText;
+    public int daysLeftToKill;
     public string complainText;
-    public string roomNumberText;
+    public int roomNumberText;
 
 }

@@ -15,5 +15,6 @@ MonoBehaviour:
   headImage: {fileID: 0}
   nameText: Eti Hosbes
   daysLeftText: 2
+  daysLeftToKill: 1
   complainText: iyi ya
   roomNumberText: 2
