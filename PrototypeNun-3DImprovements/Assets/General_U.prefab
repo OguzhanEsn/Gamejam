@@ -1388,7 +1388,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463951498651571848}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ca429edc3006d484bb66649aa6e6ac52, type: 2}
   m_CullingMode: 0
@@ -1440,11 +1440,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   isStopped: 0
   isInDialogue: 0
   shouldMove: 0
   dialogue: {fileID: 11400000, guid: 65ab9930989419a42be25314bbcc66ed, type: 2}
   dialogueManager: {fileID: 0}
+  dialogueText: {fileID: 2182929911831774610}
   inventoryHandler: {fileID: 0}
   fieldOfView: {fileID: 2549057743219355712}
 --- !u!195 &2001091452556813146
