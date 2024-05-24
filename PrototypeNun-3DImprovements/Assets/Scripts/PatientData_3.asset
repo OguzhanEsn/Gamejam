@@ -15,5 +15,6 @@ MonoBehaviour:
   headImage: {fileID: 0}
   nameText: Delo delo
   daysLeftText: 1
+  daysLeftToKill: 3
   complainText: "\xF6lecek"
   roomNumberText: 3
