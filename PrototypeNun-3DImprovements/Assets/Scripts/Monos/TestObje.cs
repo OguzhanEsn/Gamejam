@@ -40,6 +40,7 @@ public class TestObje : MonoBehaviour, IInteractable
                 break;
             case ReadInteract readInteract:
                 inter.Activate(this.gameObject, hudHandler);
+                hudHandler.RoutineUIOpenClose();
                 break;
             case ReportInteract reportInteract:
                 inter.Activate(this.gameObject, hudHandler);

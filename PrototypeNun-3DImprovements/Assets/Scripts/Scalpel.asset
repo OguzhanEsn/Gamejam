@@ -27,4 +27,4 @@ MonoBehaviour:
   onObjectScale: {x: 20, y: 20, z: 20}
   weaponDamage: 0
   bloodyMat: {fileID: 2100000, guid: 791dd2b8fdbe98c49a87e4cbbe1ac263, type: 2}
-  isBloody: 1
+  isBloody: 0

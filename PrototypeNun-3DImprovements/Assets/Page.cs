@@ -10,7 +10,9 @@ public class Page : MonoBehaviour
     public TextMeshProUGUI roomNumber;
     public TextMeshProUGUI daysLeft;
     public TextMeshProUGUI daysLeftToKill;
-    public TextMeshProUGUI complainText;
+    public TextMeshProUGUI contractText;
+    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI rankText;
     //add contract type
     public Patient[] patients;
 
@@ -31,8 +33,9 @@ public class Page : MonoBehaviour
         roomNumber.text = "Room Number: " + patients[pageIndex].patientInfo.roomNumberText;
         daysLeft.text = "Days untill Discharged: " + patients[pageIndex].daysHeWillStay;
         daysLeftToKill.text = "Must be eliminated in: " + patients[pageIndex].patientInfo.daysLeftToKill;
-        complainText.text = "Complains: " + patients[pageIndex].patientInfo.complainText;
-
+        contractText.text = "Contract Type: " + patients[pageIndex].ContractType.ToString();
+        healthText.text = "Physical Health: " + patients[pageIndex].physicalHealth.ToString();
+        rankText.text = "Target's Rank: " + patients[pageIndex].targetRank.ToString();
         pageIndex++;
     }
 

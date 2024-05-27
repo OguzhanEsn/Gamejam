@@ -17,7 +17,6 @@ public class InventoryHandler : MonoBehaviour
 
     // Test
 
-
     void Start()
     {
         if (itemSlots.Length > 0)

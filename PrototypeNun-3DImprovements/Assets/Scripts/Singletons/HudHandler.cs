@@ -11,7 +11,8 @@ public enum UIElements
     InteractableUI= 0,
     InventoryUI = 1,
     DialogueUI= 2,
-    PauseUI= 3
+    PauseUI= 3,
+    RoutineUI = 4,
 }
 public class HudHandler : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class HudHandler : MonoBehaviour
     [SerializeField] GameObject dialogueUI = null;
     [SerializeField] GameObject pauseUI = null;
     [SerializeField] GameObject raporUI= null;
+    [SerializeField] GameObject routineUI = null;
 
     [SerializeField] PlayerController playerController = null;
 
@@ -50,7 +52,7 @@ public class HudHandler : MonoBehaviour
         lockerInventoryUI.SetActive(false);
         deskInventoryUI.SetActive(false);
         inventoryUI.SetActive(false);
-
+        routineUI.SetActive(false);
         Test(false);
     }
     // Start is called before the first frame update
@@ -83,8 +85,25 @@ public class HudHandler : MonoBehaviour
         }
     }
 
-   
-   public void InventoryOpenClose(int number)
+    public void RoutineUIOpenClose()
+    {
+        if (routineUI.activeSelf)
+        {
+            routineUI.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = false;
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            routineUI.SetActive(true);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = true;
+            Time.timeScale = 0f;
+        }
+    }
+
+    public void InventoryOpenClose(int number)
     {
         switch (number)
         {
@@ -225,6 +244,9 @@ public class HudHandler : MonoBehaviour
                 break;
             case UIElements.PauseUI:
                 dialogueUI.SetActive(true);
+                break;
+            case UIElements.RoutineUI:
+                routineUI.SetActive(true);
                 break;
         }
     }

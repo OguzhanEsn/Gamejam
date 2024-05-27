@@ -2,6 +2,8 @@ using UnityEngine.AI;
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.UI;
+using Unity.VisualScripting;
 public class PatrolAI : MonoBehaviour, IMovable
 {
     private NavMeshAgent _agent;
@@ -24,8 +26,11 @@ public class PatrolAI : MonoBehaviour, IMovable
 
     public InventoryHandler inventoryHandler;
     public FieldOfView fieldOfView;
+    public Image alert;
 
     public AIDialogue targetKilledNearby;
+
+    
 
     void OnEnable()
     {
@@ -45,14 +50,42 @@ public class PatrolAI : MonoBehaviour, IMovable
         }
     }
 
+
+    public enum GuardState
+    {
+        Patrol,
+        Alert
+    }
+
+    public GuardState guardState = GuardState.Patrol;
+
+
+    public void ChangeGuardState()
+    {
+        switch (guardState)
+        {
+            case GuardState.Patrol:
+                break;
+            case GuardState.Alert:
+                fieldOfView.viewRadius = 6;
+                fieldOfView.viewAngle = 120;
+                alert.enabled = true;
+                break;
+
+        }
+    }
+
+
     void Awake()
     {
+        alert.enabled = false;
         _agent = GetComponent<NavMeshAgent>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+
         UpdateDestination();
     }
 
@@ -80,8 +113,14 @@ public class PatrolAI : MonoBehaviour, IMovable
 
                 WeaponITSO scalpelSO = inventoryHandler.GetCurrentItem() as WeaponITSO;
 
+                if (scalpelSO != null)
+                {
+                    if (scalpelSO.isBloody)
+                        StartDialogue(bloodyWeaponDetected);
+                    
+                        
+                }
                 StartDialogue(weaponDetected);
-
             }
         }
     }
@@ -97,10 +136,15 @@ public class PatrolAI : MonoBehaviour, IMovable
 
     void IterateWaypointIndex()
     {
-        waypointIndex = (waypointIndex + 1) % waypoints.Length;
-        isStopped = true;
-        animator.SetBool("isMoving", false);
-        Invoke(nameof(UpdateDestination), 3f);
+        if (isInDialogue)
+            return;
+        else
+        {
+            waypointIndex = (waypointIndex + 1) % waypoints.Length;
+            isStopped = true;
+            animator.SetBool("isMoving", false);
+            Invoke(nameof(UpdateDestination), 3f);
+        }
     }
 
     public void CheckMovement(bool isStop)

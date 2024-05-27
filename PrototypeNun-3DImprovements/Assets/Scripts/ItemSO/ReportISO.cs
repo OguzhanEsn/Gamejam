@@ -13,5 +13,5 @@ public class ReportISO : ScriptableObject
     public int daysLeftToKill;
     public string complainText;
     public int roomNumberText;
-
+    public int physicalHealth;
 }

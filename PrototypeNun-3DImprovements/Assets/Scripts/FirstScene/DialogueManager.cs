@@ -24,6 +24,8 @@ public class DialogueManager : MonoBehaviour
 
     public Animator animator;
 
+    public AudioSource audioSource;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -89,6 +91,11 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
 
         animator.Play("CanvasFirst");
+    }
+
+    public void PlayDaySound()
+    {
+        audioSource.Play();
     }
 
     public void LoadNextScene()

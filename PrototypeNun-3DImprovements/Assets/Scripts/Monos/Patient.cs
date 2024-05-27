@@ -10,15 +10,12 @@ public class Patient : MonoBehaviour, IInteractable
 
     public string firstName;
     public ContractType ContractType;
-
+    public Rank targetRank;
 
     [Range(0, 5)]
     public int mentalHealth;
     [Range(0, 5)]
     public int physicalHealth;
-
-    [Range(1, 3)]
-    public int rank;
 
     [Range(1, 6)]
     public int roomNumber;
@@ -51,6 +48,8 @@ public class Patient : MonoBehaviour, IInteractable
 
     public Transform killPos;
 
+    public PatrolAI guard;
+
     #region BodyParts
     private MeshRenderer _meshRenderer;
     private MeshCollider _meshCollider;
@@ -68,6 +67,9 @@ public class Patient : MonoBehaviour, IInteractable
             OnPatientKilled?.Invoke(this);
         }
 
+        guard.guardState = PatrolAI.GuardState.Alert;
+        guard.ChangeGuardState();
+
     }
 
     public void DecreaseHealth(ContractType contractType, int damage)
@@ -76,7 +78,7 @@ public class Patient : MonoBehaviour, IInteractable
 
         switch (contractType)
         {
-            case ContractType.Kill:
+            case ContractType.Murder:
                 hasDamagedToday = true;
                 physicalHealth -= 1;
                 break;
@@ -107,14 +109,14 @@ public class Patient : MonoBehaviour, IInteractable
     }
     void Start()
     {
-        firstName = patientInfo.nameText;
+       /* firstName = patientInfo.nameText;
 
         //paheadImage = patientInfo.headImage;
         nameText.text = firstName;
         daysLeftText.text = daysHeWillStay.ToString();
         roomNumberText.text = patientInfo.roomNumberText.ToString();
         complainText.text = patientInfo.complainText;
-        daysLeftToKillText.text = patientInfo.daysLeftToKill.ToString();    
+        daysLeftToKillText.text = patientInfo.daysLeftToKill.ToString();    */
 
     }
 
@@ -288,11 +290,19 @@ public enum Complains
     badCooking,
     noFeeding
 }
+
+public enum Rank
+{
+    Private,
+    Sergeant,
+    Colonel
+}
+
 public enum ContractType
 {
     None,
     Poison,
-    Kill,
+    Murder,
     MakeCrazy,
 }
 

@@ -13,7 +13,7 @@ public class ReadInteract : Interactions
 
     public override void Activate(GameObject go, HudHandler hudHandler)
     {
-        //hudHandler.ActivateHudElement(UIElements.InteractableUI, go.transform, 1.0f);
+
         Debug.Log("Reading");   
     }
     
