@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: PatientData_2
   m_EditorClassIdentifier: 
   headImage: {fileID: 0}
-  nameText: Eti Hosbes
+  nameText: Igor Markovic
   daysLeftText: 2
   daysLeftToKill: 1
   complainText: iyi ya
   roomNumberText: 2
+  physicalHealth: 0

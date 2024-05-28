@@ -10,8 +10,6 @@ public class InventoryHandler : MonoBehaviour
 
      //test
      public bool fakeItem = true;
-    [SerializeField] GameObject fakeCurrentItem;
-    [SerializeField] GameObject backPack;
     int selectedSlotIndex = -1;
     public TextMeshProUGUI itemNameText;  // Reference to the Text element
 
@@ -87,11 +85,6 @@ public class InventoryHandler : MonoBehaviour
         itemSlots[selectedSlotIndex].Select();
         GetCurrentItem();
         UpdateItemNameText();
-    }
-
-    public Item FakeCurrentItem()
-    {
-        return fakeCurrentItem.GetComponent<Item>();
     }
 
     public int GetCurrentItemNumber()

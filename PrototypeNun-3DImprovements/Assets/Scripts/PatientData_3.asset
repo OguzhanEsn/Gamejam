@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: PatientData_3
   m_EditorClassIdentifier: 
   headImage: {fileID: 0}
-  nameText: Delo delo
+  nameText: Vladimir Kovacs
   daysLeftText: 1
   daysLeftToKill: 3
   complainText: "\xF6lecek"
   roomNumberText: 3
+  physicalHealth: 0

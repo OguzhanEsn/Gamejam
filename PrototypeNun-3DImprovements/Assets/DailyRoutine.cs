@@ -7,21 +7,16 @@ using UnityEngine;
 public class DailyRoutine : MonoBehaviour
 {
 
-    [SerializeField] HudHandler hudHandler;
-    [SerializeField] GameObject RoutineUI;
-    [SerializeField] PlayerController playerController;
-
-
-
-    public void RoutineUIOpenClose()
+    private void Update()
     {
-        if (RoutineUI.activeSelf)
+        if(gameObject.activeSelf)
         {
-            RoutineUI.SetActive(false);
-        }
-        else
-        {
-            RoutineUI.SetActive(true);
+            if(Input.GetKeyDown(KeyCode.F))
+            {
+                gameObject.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = false;
+            }
         }
     }
 

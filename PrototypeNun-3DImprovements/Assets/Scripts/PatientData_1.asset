@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: PatientData_1
   m_EditorClassIdentifier: 
   headImage: {fileID: 0}
-  nameText: "\u0130bo Dalo"
+  nameText: Sergiu Petrovich
   daysLeftText: 3
   daysLeftToKill: 2
   complainText: "yok bi\u015Fi"
   roomNumberText: 3
+  physicalHealth: 0

@@ -54,6 +54,8 @@ public class HudHandler : MonoBehaviour
         inventoryUI.SetActive(false);
         routineUI.SetActive(false);
         Test(false);
+        Cursor.visible = false;
+
     }
     // Start is called before the first frame update
     void Start()
@@ -87,19 +89,12 @@ public class HudHandler : MonoBehaviour
 
     public void RoutineUIOpenClose()
     {
-        if (routineUI.activeSelf)
+        if (!routineUI.activeSelf)
         {
-            routineUI.SetActive(false);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = false;
-            Time.timeScale = 1f;
-        }
-        else
-        {
+            Debug.Log("123");
             routineUI.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = true;
-            Time.timeScale = 0f;
         }
     }
 

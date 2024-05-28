@@ -31,10 +31,10 @@ public class Page : MonoBehaviour
 
         contactName.text = "Target Name: " + patients[pageIndex].patientInfo.nameText;
         roomNumber.text = "Room Number: " + patients[pageIndex].patientInfo.roomNumberText;
-        daysLeft.text = "Days untill Discharged: " + patients[pageIndex].daysHeWillStay;
-        daysLeftToKill.text = "Must be eliminated in: " + patients[pageIndex].patientInfo.daysLeftToKill;
+        daysLeft.text = "Days untill Discharged: " + patients[pageIndex].daysHeWillStay + " days.";
+        daysLeftToKill.text = "Must be eliminated in: " + patients[pageIndex].patientInfo.daysLeftToKill + " days.";
         contractText.text = "Contract Type: " + patients[pageIndex].ContractType.ToString();
-        healthText.text = "Physical Health: " + patients[pageIndex].physicalHealth.ToString();
+        healthText.text = "Physical Condition: " + patients[pageIndex].physicalHealth.ToString() +" / 5";
         rankText.text = "Target's Rank: " + patients[pageIndex].targetRank.ToString();
         pageIndex++;
     }
