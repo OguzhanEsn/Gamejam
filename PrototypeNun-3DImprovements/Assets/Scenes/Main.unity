@@ -78650,6 +78650,11 @@ PrefabInstance:
       propertyPath: movables.Array.data[0]
       value: 
       objectReference: {fileID: 418410966}
+    - target: {fileID: 1048114033426787975, guid: 147f92fb5c6e7634489a40cac78c5816,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1177935099427742379, guid: 147f92fb5c6e7634489a40cac78c5816,
         type: 3}
       propertyPath: m_SizeDelta.x
