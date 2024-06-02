@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.WSA;
 
 public class Scalpel : MonoBehaviour
 {
@@ -17,4 +18,10 @@ public class Scalpel : MonoBehaviour
         }
     }
 
+    public void ChangeMaterial(Material material)
+    {
+        MeshRenderer mesh = gameObject.GetComponent<MeshRenderer>();
+        mesh.material = material;
+
+    }
 }

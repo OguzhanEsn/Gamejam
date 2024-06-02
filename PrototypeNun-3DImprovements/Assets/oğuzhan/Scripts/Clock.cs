@@ -4,12 +4,14 @@ using UnityEngine;
 using TMPro;
 public class Clock : MonoBehaviour
 {
-    const float realSecondsPerIngameDay = 600f;
+    const float realSecondsPerIngameDay = 300f;
 
     Transform hourHand;
     Transform minuteHand;
     TMP_Text timeText;
     float day = 0.58f;
+
+
 
     private void Awake()
     {
@@ -28,7 +30,7 @@ public class Clock : MonoBehaviour
         float rotationDegreesPerDay = 360f;
         hourHand.eulerAngles = new Vector3(0, 0, -dayNormalized * rotationDegreesPerDay);
 
-        float hoursPerDay = 12f;
+        float hoursPerDay = 24f;
         minuteHand.eulerAngles = new Vector3(0, 0, -dayNormalized * rotationDegreesPerDay * hoursPerDay);
 
 
@@ -37,5 +39,13 @@ public class Clock : MonoBehaviour
 
         timeText.text = hour + ":" + minutes;
 
+    }
+
+    public int GetCurrentHour()
+    {
+        float dayNormalized = day % 1f;
+        float hoursPerDay = 24f;
+        int currentHour = Mathf.FloorToInt(dayNormalized * hoursPerDay);
+        return currentHour;
     }
 }

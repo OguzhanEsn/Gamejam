@@ -10,13 +10,22 @@ EditorBuildSettings:
     guid: 915216ddf4f629049b543eed9fc5ad06
   - enabled: 1
     path: Assets/Scenes/First.unity
-    guid: eab3cd992abb5814581fef8f43bcdb75
+    guid: 2271c72eea057c747b7cf0b0253ef701
   - enabled: 1
-    path: Assets/Scenes/Second.unity
-    guid: 293b7b4438c05d34080087c42e877ae0
+    path: Assets/Scenes/Second Yeni.unity
+    guid: 34ed6f584630469429a2f7e9827bfab7
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 362d6f53dc96cea42a51b03c08fe576d
+    path: Assets/Scenes/DAY 1.unity
+    guid: 93977f8240880084e8e4d0c8103b42cc
+  - enabled: 1
+    path: Assets/Scenes/Day1Report.unity
+    guid: 2ffef02b8d095184dbeca7a467b55d9c
+  - enabled: 1
+    path: Assets/Scenes/DAY 2.unity
+    guid: 39fceb45a40174743b82f84b2e7c96b6
+  - enabled: 1
+    path: Assets/Scenes/DAY 3.unity
+    guid: a296576eb89e63c4894d5ac81c12e2e4
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 36a58d9054659164b81327f210b04932,
       type: 2}

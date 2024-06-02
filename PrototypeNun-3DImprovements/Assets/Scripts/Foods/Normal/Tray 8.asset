@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7483cb0e230e2842bb783f18fc82324, type: 3}
+  m_Name: Tray 8
+  m_EditorClassIdentifier: 
+  uiIcon: {fileID: 21300000, guid: 46f32cad24b3d434a98f19b157c29d24, type: 3}
+  itemPrefab: {fileID: 5504984377894371894, guid: 01ea28a5c31ff3a4ab9456ee65ca9729,
+    type: 3}
+  itemName: Food Tray (8)
+  itemDescription: Tray
+  itemID: 0
+  isStackable: 0
+  inHandPosition: {x: -0.3, y: 0, z: 0}
+  inHandRotation: {x: 0, y: 180, z: 0}
+  inHandScale: {x: 2, y: 2, z: 2}
+  onObjectPosition: {x: 0, y: 0, z: 0}
+  onObjectRotation: {x: 0, y: 90, z: 0}
+  onObjectScale: {x: 1, y: 1, z: 1}
+  foodHealthType: 0
+  poisonedMaterial: {fileID: 2100000, guid: 6de7dd4145a51294285639db57f77d39, type: 2}
