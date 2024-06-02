@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class Clock : MonoBehaviour
 {
-    const float realSecondsPerIngameDay = 10f;
+    const float realSecondsPerIngameDay = 300f;
 
     Transform hourHand;
     Transform minuteHand;

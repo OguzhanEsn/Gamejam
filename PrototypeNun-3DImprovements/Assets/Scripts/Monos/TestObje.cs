@@ -218,7 +218,7 @@ public class TestObje : MonoBehaviour, IInteractable
         {
             transform.localRotation = Quaternion.Euler(itemData.onObjectRotation);
             transform.localPosition = itemData.onObjectPosition;
-            //transform.localScale = itemData.onObjectScale;
+            transform.localScale = Vector3.one;
         }
     }
 
