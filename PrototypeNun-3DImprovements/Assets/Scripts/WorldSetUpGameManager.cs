@@ -11,6 +11,8 @@ public class WorldSetUpGameManager : MonoBehaviour
 
     public int Day = 0;
 
+    public Animator canvasAnim;
+
     void Awake()
     {
         if (instance == null)
@@ -60,6 +62,8 @@ public class WorldSetUpGameManager : MonoBehaviour
     [ContextMenu("SetUpWorld")]
     public void DayPast()
     {
+        canvasAnim.Play("DayEnd");
+
         Patient[] patients = FindObjectsOfType<Patient>(); // Tüm Patient nesnelerini bul
         bool hasComplaint = false;
         

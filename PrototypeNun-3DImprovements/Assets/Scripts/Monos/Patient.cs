@@ -42,7 +42,6 @@ public class Patient : MonoBehaviour, IInteractable
     public TextMeshProUGUI daysLeftText;
     public TextMeshProUGUI complainText;
     public TextMeshProUGUI roomNumberText;
-    public TextMeshProUGUI daysLeftToKillText;
 
     bool canDestroy = false;
 
@@ -67,8 +66,8 @@ public class Patient : MonoBehaviour, IInteractable
             OnPatientKilled?.Invoke(this);
         }
 
-        guard.guardState = PatrolAI.GuardState.Alert;
-        guard.ChangeGuardState();
+        //guard.guardState = PatrolAI.GuardState.Alert;
+        //guard.ChangeGuardState();
 
     }
 
@@ -237,8 +236,8 @@ public class Patient : MonoBehaviour, IInteractable
     }
     public void SetDeath()
     {
-        _meshCollider.enabled = false;
-        _meshRenderer.enabled = false;
+        //_meshCollider.enabled = false;
+        //_meshRenderer.enabled = false;
 
         // IsDead = true;
 

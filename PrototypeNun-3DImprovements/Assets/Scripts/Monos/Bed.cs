@@ -23,11 +23,25 @@ public class Bed : MonoBehaviour, IInteractable
 
         inter.Deactivate(this.gameObject, hudHandler);
     }
+    int CurrentHour()
+    {
+        Clock clock = FindObjectOfType<Clock>();
+        int currentHour = clock.GetCurrentHour();
+
+        return currentHour;
+    }
 
     public void Interact()
     {
+        int currentHour = CurrentHour();
+        Debug.Log("Current Hour: " + currentHour);
+
+        if(currentHour >= 17)
+        {
+            WorldSetUpGameManager.instance.DayPast();
+        }
         //Check The Time Before That 
-        WorldSetUpGameManager.instance.DayPast();
+
     }
     #endregion
 

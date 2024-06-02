@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public enum UIElements
 {
     InteractableUI= 0,
@@ -269,7 +269,15 @@ public class HudHandler : MonoBehaviour
     
     }
 
+    public void LoadReportScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
+    public void LoadNextDay()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
 
 
