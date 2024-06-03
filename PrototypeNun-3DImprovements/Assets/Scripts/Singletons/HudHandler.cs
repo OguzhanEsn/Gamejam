@@ -22,6 +22,7 @@ public class HudHandler : MonoBehaviour
     [SerializeField] GameObject pauseUI = null;
     [SerializeField] GameObject raporUI= null;
     [SerializeField] GameObject routineUI = null;
+    [SerializeField] GameObject poisonUI = null;
 
     [SerializeField] PlayerController playerController = null;
 
@@ -91,8 +92,18 @@ public class HudHandler : MonoBehaviour
     {
         if (!routineUI.activeSelf)
         {
-            Debug.Log("123");
+
             routineUI.SetActive(true);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = true;
+        }
+    }
+
+    public void PoisonUIOpenClose()
+    {
+        if (!poisonUI.activeSelf)
+        {
+            poisonUI.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = true;
         }

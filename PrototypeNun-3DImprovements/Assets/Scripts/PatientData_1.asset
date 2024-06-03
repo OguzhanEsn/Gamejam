@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4459625de0832c439a25fa1aa301404, type: 3}
   m_Name: PatientData_1
   m_EditorClassIdentifier: 
-  headImage: {fileID: 0}
+  headImage: {fileID: 21300000, guid: 54397deb3936d4a439b840ce0f547aa3, type: 3}
   nameText: Sergiu Petrovich
   daysLeftText: 3
   daysLeftToKill: 2

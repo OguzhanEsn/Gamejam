@@ -25,7 +25,7 @@ public class PatientInteract : Interactions
         //itemText = "Patient";
         _patient = go.GetComponent<Patient>();
 
-        if(_patient.ContractType == ContractType.None)
+        if(_patient.ContractType == ContractType.RegularCare)
             typeText = "Patient";
         else{
             typeText = _patient.ContractType.ToString() + " Contract";

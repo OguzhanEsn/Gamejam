@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ReportISO : ScriptableObject
 {
 
-    public Image headImage;
+    public Sprite headImage;
     public string nameText;
     public int daysLeftText;
     public int daysLeftToKill;

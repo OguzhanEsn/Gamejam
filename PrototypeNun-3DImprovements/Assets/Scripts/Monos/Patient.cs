@@ -17,7 +17,7 @@ public class Patient : MonoBehaviour, IInteractable
     [Range(0, 5)]
     public int physicalHealth;
 
-    [Range(1, 6)]
+    [Range(1, 12)]
     public int roomNumber;
 
     [Range(1, 5)]
@@ -299,7 +299,7 @@ public enum Rank
 
 public enum ContractType
 {
-    None,
+    RegularCare,
     Poison,
     Murder,
     MakeCrazy,

@@ -40,7 +40,10 @@ public class TestObje : MonoBehaviour, IInteractable
                 break;
             case ReadInteract readInteract:
                 inter.Activate(this.gameObject, hudHandler);
-                hudHandler.RoutineUIOpenClose();
+                if(readInteract.itemText == "Routine")
+                    hudHandler.RoutineUIOpenClose();
+                else if(readInteract.itemText == "Poison")
+                    hudHandler.PoisonUIOpenClose();
                 break;
             case ReportInteract reportInteract:
                 inter.Activate(this.gameObject, hudHandler);

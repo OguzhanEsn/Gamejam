@@ -28,14 +28,17 @@ public class Page : MonoBehaviour
     {
         if(pageIndex >= patients.Length) pageIndex = 0;
 
-
-        contactName.text = "Target Name: " + patients[pageIndex].patientInfo.nameText;
-        roomNumber.text = "Room Number: " + patients[pageIndex].patientInfo.roomNumberText;
-        daysLeft.text = "Days untill Discharged: " + patients[pageIndex].daysHeWillStay + " days.";
-        daysLeftToKill.text = "Must be eliminated in: " + patients[pageIndex].patientInfo.daysLeftToKill + " days.";
+        headIMG.sprite = patients[pageIndex].patientInfo.headImage;
+        if(headIMG.sprite == null )
+            headIMG.enabled = false;
+        else headIMG.enabled = true;
+        contactName.text = "Name: " + patients[pageIndex].patientInfo.nameText;
+        roomNumber.text = "Room #: " + patients[pageIndex].patientInfo.roomNumberText;
+        daysLeft.text = "Discharged in: " + patients[pageIndex].daysHeWillStay + " days.";
+        daysLeftToKill.text = "Eliminate in: " + patients[pageIndex].patientInfo.daysLeftToKill + " days.";
         contractText.text = "Contract Type: " + patients[pageIndex].ContractType.ToString();
         healthText.text = "Physical Condition: " + patients[pageIndex].physicalHealth.ToString() +" / 5";
-        rankText.text = "Target's Rank: " + patients[pageIndex].targetRank.ToString();
+        rankText.text = "Rank: " + patients[pageIndex].targetRank.ToString();
         pageIndex++;
     }
 
