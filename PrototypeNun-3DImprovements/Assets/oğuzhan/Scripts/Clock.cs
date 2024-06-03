@@ -9,7 +9,7 @@ public class Clock : MonoBehaviour
     Transform hourHand;
     Transform minuteHand;
     TMP_Text timeText;
-    float day = 0.58f;
+    float day = 0.28f;
 
 
 
