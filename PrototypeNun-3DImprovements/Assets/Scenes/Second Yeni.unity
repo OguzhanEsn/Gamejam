@@ -3868,7 +3868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4651603642805868, guid: fb21c2677f6de9b41b800858634f37f9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4651603642805868, guid: fb21c2677f6de9b41b800858634f37f9, type: 3}
       propertyPath: m_LocalScale.y
@@ -48297,6 +48297,7 @@ MonoBehaviour:
   pauseUI: {fileID: 1017020824}
   raporUI: {fileID: 881054386}
   routineUI: {fileID: 0}
+  poisonUI: {fileID: 0}
   playerController: {fileID: 0}
   fridgeInventoryUI: {fileID: 682010530}
   lockerInventoryUI: {fileID: 955315406}
